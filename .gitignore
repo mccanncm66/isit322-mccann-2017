@@ -27,6 +27,7 @@ coverage
 build/Release
 bundle.js
 .idea
+.c9
 
 
 # Dependency directories
