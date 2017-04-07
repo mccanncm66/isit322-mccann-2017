@@ -1,0 +1,6 @@
+#!/bin/bash
+# This will help install react packages
+
+npm install --save react react-dom webpack
+npm install --save-dev babel-loader babel-core webpack-dev-server
+npm install --save-dev babel-preset-react babel-preset-es2015
