@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-import Header from './components/Header';
-import SmallNumbers from "./components/SmallNumbers";
+import App from '../components/App';
+import Header from '../components/Header';
+import SmallNumbers from "../components/SmallNumbers";
 import { shallow } from 'enzyme';
 
 describe('My rest basic test' ,function () {

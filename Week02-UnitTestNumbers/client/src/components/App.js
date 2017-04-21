@@ -11,13 +11,27 @@ class App extends Component {
             file: 'Get Nine Result will be placed here.',
             foo: 'waiting for server',
         };
+
+        // SET quiet TO false TO SEE DEBUG MESSAGES
+        this.quiet = true;
+        this.debug('GetFoo constructor called');
     }
+
+    debug = (message) => {
+        if (!this.quiet) {
+            console.log(message);
+        }
+    };
+
     getFoo = () => {
         const that = this;
         fetch('/api/foo')
             .then(function (response) {
+                that.debug('GETONE-FETCH-ONE');
                 return response.json();
             }).then(function (json) {
+                that.debug('GETONE-FETCH-TWO');
+                that.debug('parsed json', json);
                 console.log('parsed json', json);
                 that.setState(foo => (json));
             }).catch(function (ex) {

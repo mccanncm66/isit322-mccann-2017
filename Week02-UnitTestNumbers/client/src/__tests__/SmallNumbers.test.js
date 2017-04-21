@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SmallNumbers from "./components/SmallNumbers";
+import SmallNumbers from "../components/SmallNumbers";
 import { shallow } from 'enzyme';
 
 describe('My small number test' ,function () {
