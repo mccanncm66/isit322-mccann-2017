@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import logo from '../Inkscape-small.svg';
-import '../App.css';
+import logo from '../images/Inkscape-small.svg';
+import '../css/App.css';
 
 class Header extends Component {
 

@@ -1,21 +1,28 @@
 import React, {Component} from 'react';
-import '../App.css';
+import '../css/App.css';
 
-
+const error = {
+    message: "No props in the small numbers component. you must pass in props."
+};
 
 class SmallNumbers extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        console.log('TEST PROPS', props);
+        if(!props.numbers){
+            alert("No props in the small numbers component. you must pass in props.");
+            throw error.message;
+        }
         this.state = {
-            nine: '0',
-            eight: '0',
-            seven: '0',
-            six: '0',
-            five: '0',
-            four: '0',
-            three: '0',
-            two: '0',
-            one: '0'
+            nine: props.numbers.nine,
+            eight: props.numbers.eight,
+            seven: props.numbers.seven,
+            six: props.numbers.six,
+            five: props.numbers.five,
+            four: props.numbers.four,
+            three: props.numbers.three,
+            two: props.numbers.two,
+            one: props.numbers.one
         };
     }
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../App.css';
+import '../css/App.css';
 import 'whatwg-fetch';
 //import mock from './mocks';
 //var fetch = require('../mocks').fetch;
