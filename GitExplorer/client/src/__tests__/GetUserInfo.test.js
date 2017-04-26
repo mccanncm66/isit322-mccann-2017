@@ -28,18 +28,11 @@ describe('My rest basic test' ,function () {
 
     it('renders button getUser button click and checks value for user login', () => {
         const wrapper = shallow(<GetUserInfo />);
+        const nineSign = <p className="User-data">waiting for data</p>;
         wrapper.find('button.getUserInfo').simulate('click');
-        const nineSign = <p className="User-data">mccanncm66</p>;
-        console.log("************************************************************");
-        console.log(nineSign);
+        const ninep = wrapper.find('p').last().debug();
+        //console.log(ninep);
         expect(wrapper.contains(nineSign)).toEqual(true);
-
     });
-
-
-
-
-
-
 
 });
