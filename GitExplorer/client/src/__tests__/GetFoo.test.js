@@ -22,7 +22,7 @@ describe('My rest basic test' ,function () {
         const nineSign = <p className="App-intro">state.foo: bar</p>;
         wrapper.find('button.getFoo').simulate('click');
         const ninep = wrapper.find('p').first().debug();
-        console.log(ninep);
+        //console.log(ninep);
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 

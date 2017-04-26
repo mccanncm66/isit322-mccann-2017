@@ -20,7 +20,7 @@ class GetFoo extends Component {
 
     debug = (message) => {
         if (!this.quiet) {
-            console.log(message);
+            //console.log(message);
         }
     };
 
@@ -33,10 +33,10 @@ class GetFoo extends Component {
             }).then(function (json) {
                 that.debug('GETONE-FETCH-TWO');
                 that.debug('parsed json', json);
-                console.log('parsed json', json);
+                //console.log('parsed json', json);
                 that.setState(foo => (json));
             }).catch(function (ex) {
-                console.log('parsing failed', ex);
+                //console.log('parsing failed', ex);
         });
     };
 
@@ -49,11 +49,7 @@ class GetFoo extends Component {
                 <p className="App-intro">
                     state.file: {this.state.file}
                 </p>
-{/*                <p className="App-intro">
-                    Git Image: {this.state.avatar}
-                </p>*/}
                 <button className="getFoo" onClick={this.getFoo}>Get Foo</button> <br />
-{/*                <button className="getGit" onClick={this.getGit}>Get Git</button> <br />*/}
             </div>
         );
     }

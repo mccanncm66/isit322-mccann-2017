@@ -6,32 +6,24 @@ import GetUserInfo from '../components/GetUserInfo';
 import { shallow } from 'enzyme';
 
 describe('My rest basic test' ,function () {
-/*    it('renders without crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<GetUserInfo />, div);
-    });
 
-    it('expects true to be true', function() {
-        expect(true).toBe(true);
-    });
 
-    const getLast = (wrapper) => {
-        const ninep = wrapper.find('p').last().debug();
+    const getLast = (wrapper, element) => {
+        const ninep = wrapper.find(element).debug();
         console.log(ninep);
     };
     it('renders initial message for user field user login', () => {
         const wrapper = shallow(<GetUserInfo />);
         const nineSign = <p className="User-field">Login Name:</p>;
-        //const ninep = wrapper.find('p').first().debug();
+        getLast(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
-    });*/
+    });
 
     it('renders button getUser button click and checks value for user login', () => {
         const wrapper = shallow(<GetUserInfo />);
-        const nineSign = <p className="User-data">waiting for data</p>;
-        wrapper.find('button.getUserInfo').simulate('click');
-        const ninep = wrapper.find('p').last().debug();
-        //console.log(ninep);
+        const nineSign = <p className="User-data">mccanncm66 </p>;
+        wrapper.find('button#getUserInfo').simulate('click');
+        getLast(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 

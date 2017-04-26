@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
-//import mock from './mocks';
-//var fetch = require('../mocks').fetch;
 
 class GetUserInfo extends Component {
     constructor() {
+        console.log("contructor called");
         super();
         this.state = {
             userLogin: 'waiting for data',
@@ -22,16 +21,16 @@ class GetUserInfo extends Component {
 
     debug = (message) => {
         if (!this.quiet) {
-            console.log(message);
+            //console.log(message);
         }
     };
 
     getUser = () => {
         const that = this;
+        console.log("get user called");
         fetch('/api/user')
             .then(function (response) {
                 // you write it
-
                 return response.json();
             }).then (function (json) {
                 //display wwith logger as needed
@@ -84,7 +83,7 @@ class GetUserInfo extends Component {
                     <p className="User-data">
                         {this.state.followers_url}
                     </p>
-                    <button className="getUserInfo" onClick={this.getUser}>Get User</button> <br />
+                    <button id="getUserInfo" onClick={this.getUser}>Get User</button> <br />
 
             </div>
         );

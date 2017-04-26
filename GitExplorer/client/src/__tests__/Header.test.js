@@ -11,7 +11,7 @@ describe('My header test' ,function () {
     function getFirst(wrapper) {
         const eightp = wrapper.find('h2').first().debug();
         if(!quiet) {
-            console.log("Headder:", eightp);
+            //console.log("Header:", eightp);
         }
 
     }
