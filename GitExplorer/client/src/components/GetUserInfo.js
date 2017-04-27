@@ -7,11 +7,12 @@ class GetUserInfo extends Component {
         console.log("contructor called");
         super();
         this.state = {
-            userLogin: 'waiting for data',
+            gitUser: {}
+/*            userLogin: 'waiting for data',
             avatar_url: 'waiting for data',
             url: 'waiting for data',
             html_url: 'waiting for data',
-            followers_url: 'waiting for data'
+            followers_url: 'waiting for data'*/
         };
 
         // SET quiet TO false TO SEE DEBUG MESSAGES
@@ -38,11 +39,12 @@ class GetUserInfo extends Component {
                 var body = JSON.parse(json.body);
                 //console.log(body);
                 that.setState({
-                    userLogin: body.login
+                    gitUser: body
+/*                    userLogin: body.login
                 ,   avatar_url: body.avatar_url
                 ,   url: body.url
                 ,   html_url: body.html_url
-                ,   followers_url: body.followers_url});
+                ,   followers_url: body.followers_url*/});
         }).catch(function (ex) {
             //display with logger
             console.log('parsing failed', ex);
@@ -57,31 +59,31 @@ class GetUserInfo extends Component {
                         Login Name:
                     </p>
                     <p className="User-data">
-                        {this.state.userLogin}
+                        {this.state.gitUser.login}
                     </p>
                     <p className="User-field">
                         Avatar Url:
                     </p>
                     <p className="User-data">
-                        {this.state.avatar_url}
+                        {this.state.gitUser.avatar_url}
                     </p>
                     <p className="User-field">
                         Url:
                     </p>
                     <p className="User-data">
-                        {this.state.url}
+                        {this.state.gitUser.url}
                     </p>
                     <p className="User-field">
                         HTML Url:
                     </p>
                     <p className="User-data">
-                        {this.state.html_url}
+                        {this.state.gitUser.html_url}
                     </p>
                     <p className="User-field">
                         Followers Url:
                     </p>
                     <p className="User-data">
-                        {this.state.followers_url}
+                        {this.state.gitUser.followers_url}
                     </p>
                     <button id="getUserInfo" onClick={this.getUser}>Get User</button> <br />
 

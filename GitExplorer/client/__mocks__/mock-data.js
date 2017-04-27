@@ -14,11 +14,11 @@ const getData = (url) => {
                 error: {},
                 response: {},
                 body: JSON.stringify({
-                    userLogin: 'Robin Dudette',
-                    avatar_url: 'waiting for data',
-                    url: 'waiting for data',
-                    html_url: 'waiting for data',
-                    followers_url: 'waiting for data'
+                    login: 'Robin Dudette',
+                    avatar_url: 'avatart.com',
+                    url: 'the url',
+                    html_url: 'html url',
+                    followers_url: 'folling url'
                 })
             };
 
