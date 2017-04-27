@@ -9,7 +9,7 @@ describe('My rest basic test' ,function () {
 
 
     const getLast = (wrapper, element) => {
-        const ninep = wrapper.find(element).debug();
+        const ninep = wrapper.find(element).last().debug();
         console.log(ninep);
     };
     it('renders initial message for user field user login', () => {
@@ -21,7 +21,7 @@ describe('My rest basic test' ,function () {
 
     it('renders button getUser button click and checks value for user login', () => {
         const wrapper = shallow(<GetUserInfo />);
-        const nineSign = <p className="User-data">mccanncm66 </p>;
+        const nineSign = <p className="User-data">waiting for data</p>;
         wrapper.find('button#getUserInfo').simulate('click');
         getLast(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);

@@ -20,7 +20,7 @@ describe('My GetUserInfo test' ,function () {
     it('renders button click message for the button #getUser', () => {
         const wrapper = shallow(<GetUserInfo />);
         const nineSign = <p className="App-intro">login: Robin Dudette</p>;
-        wrapper.find('button#getUser').simulate('click');
+        wrapper.find('#getUser').simulate('click');
         getFirst(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
