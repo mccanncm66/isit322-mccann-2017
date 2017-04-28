@@ -1,16 +1,21 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
+import ShowUserInfo from './ShowUserInfo'
+import fieldDefinition from '../field-definitions';
 
 class GetUserInfo extends Component {
     constructor() {
         super();
         this.state = {
-            gitUser: {}
+            gitUser: {
+                login: 'asdf',
+                avatar_url:'avatar'
+            }
         };
 
         // SET quiet TO false TO SEE DEBUG MESSAGES
-        this.quiet = false;
+        this.quiet = true;
         this.debug('GetFoo constructor called');
     }
 
@@ -20,7 +25,7 @@ class GetUserInfo extends Component {
         }
     };
 
-    getUser = () => {
+    fetchUser = () => {
 
         const that = this;
         fetch('/api/user')
@@ -28,7 +33,7 @@ class GetUserInfo extends Component {
                 // YOU WRITE IT
                 return response.json();
             }).then(function (json) {
-            console.log('parsed json', json);
+            //console.log('parsed json', json);
                 // DISPLAY WITH LOGGER AS NEEDED
                 // PARSE THE JSON BODY INTO JS SINCE IT IS PROPABLY A STRING:
                 var body = JSON.parse(json.body);
@@ -41,14 +46,11 @@ class GetUserInfo extends Component {
     render() {
         return (
             <div className="App">
-                <p className="App-intro">
-                    login: {this.state.gitUser.login}
-                </p>
-                <p className="App-intro">
-                    avatar: {this.state.gitUser.avatar_url}
-                </p>
-
-                <button id="getUser" onClick={this.getUser}>Get Git User</button> <br />
+                <ShowUserInfo
+                    fields={fieldDefinition}
+                    gitUser={this.state.gitUser}
+                    onChange={this.fetchUser}
+                />
             </div>
         );
     }
