@@ -1,0 +1,18 @@
+{
+  "name": "git-convert",
+  "version": "1.0.0",
+  "description": "get github data and formats it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "isit322-mccann-2017"
+  },
+  "author": "caleb mccann",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.6.6"
+  }
+}
