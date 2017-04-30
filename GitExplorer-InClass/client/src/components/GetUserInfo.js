@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
+import Debug from '../elf-logger';
 import ShowUserInfo from './ShowUserInfo'
-import fieldDefinition from '../field-definitions';
+import fieldDefinitions from '../field-definitions';
+const logger = new Debug(true);
 
 class GetUserInfo extends Component {
-    constructor() {
+/*    constructor() {
         super();
         this.state = {
             gitUser: {
@@ -17,8 +19,20 @@ class GetUserInfo extends Component {
         // SET quiet TO false TO SEE DEBUG MESSAGES
         this.quiet = true;
         this.debug('GetFoo constructor called');
-    }
+    }*/ //Old Constuctor
+    constructor() {
+        super();
+        const tempGitUser = {};
+        for (let value of fieldDefinitions) {
+            tempGitUser[value.id] = value.sample;
+        }
+        this.state = {
+            gitUser: tempGitUser
+        };
 
+        logger.log('GetUserInfo constructor called.')
+        logger.log(JSON.stringify(this.state.gitUser));
+    }
     debug = (message) => {
         if (!this.quiet) {
             console.log(message);
@@ -26,28 +40,28 @@ class GetUserInfo extends Component {
     };
 
     fetchUser = () => {
-
+        logger.log('--Fetch User Being Called--');
         const that = this;
         fetch('/api/user')
             .then(function (response) {
-                // YOU WRITE IT
                 return response.json();
             }).then(function (json) {
             //console.log('parsed json', json);
-                // DISPLAY WITH LOGGER AS NEEDED
-                // PARSE THE JSON BODY INTO JS SINCE IT IS PROPABLY A STRING:
                 var body = JSON.parse(json.body);
                 that.setState({gitUser: body});
         }).catch(function (ex) {
             // DISPLAY WITH LOGGER
         });
+        event.preventDefault();
     };
 
     render() {
+        logger.log('--GetUserInfo Render Being Called--');
+        logger.log(JSON.stringify(this.state.gitUser));
         return (
             <div className="App">
                 <ShowUserInfo
-                    fields={fieldDefinition}
+                    fields={fieldDefinitions}
                     gitUser={this.state.gitUser}
                     onChange={this.fetchUser}
                 />

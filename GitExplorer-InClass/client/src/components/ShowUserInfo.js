@@ -2,22 +2,31 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import ElfElements from './ElfElements';
+import Debug from '../elf-logger'
+const logger = new Debug(true);
 
 class ShowUserInfo extends Component {
-    constructor(props) {
+/*    constructor(props) {
         super(props);
 
         if(!this.props.gitUser) {
             throw new Error("No user data.");
         }
+    }*///old
+    constructor(props) {
+        super(props);
+        //this.shouldUpdate = true;
+        logger.log('ShowUserInfo constructor called.');
+        logger.log('ShowUserInfo props.' + JSON.stringify(this.props.gitUser, null, 4));
     }
 
     getForm = (field, index) => {
+        logger.log(JSON.stringify(field));
         return (
             <div className="ElfFormRow" key={field.id}>
                 <label className="ElfFormLabel" htmlFor={field.id}>{field.label}:</label>
                 <ElfElements {...field}
-                             value={this.props.body[field.id]}
+                             value={this.props.gitUser[field.id]}
                              onChange={this.props.onChange}
                 />
             </div>
