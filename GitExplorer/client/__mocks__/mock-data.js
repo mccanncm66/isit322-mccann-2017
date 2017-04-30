@@ -14,11 +14,7 @@ const getData = (url) => {
                 error: {},
                 response: {},
                 body: JSON.stringify({
-                    login: 'Robin Dudette',
-                    avatar_url: 'avatart.com',
-                    url: 'the url',
-                    html_url: 'html url',
-                    followers_url: 'folling url'
+                    login: 'Robin Dudette'
                 })
             };
 

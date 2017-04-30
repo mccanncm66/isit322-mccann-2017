@@ -14,13 +14,13 @@ class GetFoo extends Component {
         };
 
         // SET quiet TO false TO SEE DEBUG MESSAGES
-        this.quiet = false;
-        this.debug('GetFoo constructor called');
+        this.quiet = true;
+       // this.debug('GetFoo constructor called');
     }
 
     debug = (message) => {
         if (!this.quiet) {
-            //console.log(message);
+            console.log(message);
         }
     };
 
@@ -36,7 +36,7 @@ class GetFoo extends Component {
                 //console.log('parsed json', json);
                 that.setState(foo => (json));
             }).catch(function (ex) {
-                //console.log('parsing failed', ex);
+                console.log('parsing failed', ex);
         });
     };
 

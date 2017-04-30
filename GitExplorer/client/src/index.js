@@ -21,7 +21,7 @@ var numbersInit = {
 ReactDOM.render(
     <div>
         <Header />
-        <GetUserInfo />
+        <GetUserInfo/>
         <GetFoo />
         <SmallNumbers numbers={numbersInit} />
     </div>,

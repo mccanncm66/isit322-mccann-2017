@@ -12,7 +12,6 @@
   height: 150px;
   padding: 20px;
   color: white;
-  border-bottom:4px solid black;
 }
 
 .App-intro {
@@ -22,20 +21,4 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-.container {
-  width:650px;
-  margin:0 auto;
-  text-align: left;
-}
-
-.User-field {
-  font-size: larger;
-  font-weight: bolder;
-  color: darkblue;
-}
-
-.User-data {
-  font-size: medium;
 }

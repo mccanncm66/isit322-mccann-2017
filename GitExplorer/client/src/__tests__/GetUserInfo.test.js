@@ -1,62 +1,39 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import GetUserInfo from '../components/GetUserInfo';
+import ReactDOM from 'react-dom';
 
 
 import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
-describe('My rest basic test' ,function () {
+describe('My GetUserInfo test' ,function () {
 
+    const showData = true;
 
-    const getLast = (wrapper, element) => {
-        const ninep = wrapper.find(element).last().debug();
-        console.log(ninep);
+    function getFirst(wrapper, element) {
+        if (showData) {
+            const ninep = wrapper.find(element).first().debug();
+            console.log(ninep);
+        }
     };
-    it('renders initial message for user field user login', () => {
-        const wrapper = shallow(<GetUserInfo />);
-        const nineSign = <p className="User-field">Login Name:</p>;
-        getLast(wrapper, 'p');
+
+    it('renders without crashing', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<GetUserInfo />, div);
+    });
+    it('renders default login data', () => {
+        const wrapper = mount(<GetUserInfo />);
+        const nineSign = <label className="ElfFormLabel" htmlFor="login">loginName:</label>;
+        //getFirst(wrapper, 'label');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 
-    it('renders button getUser button click and checks value for user login', () => {
-        const wrapper = shallow(<GetUserInfo />);
-        const nineSign = <p className="User-data">Robin Dudette</p>;
-        wrapper.find('button#getUserInfo').simulate('click');
-        getLast(wrapper, 'p');
-        expect(wrapper.contains(nineSign)).toEqual(true);
-    });
-
-    it('renders button getUser button click and checks value for avatar', () => {
-        const wrapper = shallow(<GetUserInfo />);
-        const nineSign = <p className="User-data">avatart.com</p>;
-        wrapper.find('button#getUserInfo').simulate('click');
-        getLast(wrapper, 'p');
-        expect(wrapper.contains(nineSign)).toEqual(true);
-    });
-
-    it('renders button getUser button click and checks value for url', () => {
-        const wrapper = shallow(<GetUserInfo />);
-        const nineSign = <p className="User-data">the url</p>;
-        wrapper.find('button#getUserInfo').simulate('click');
-        getLast(wrapper, 'p');
-        expect(wrapper.contains(nineSign)).toEqual(true);
-    });
-
-    it('renders button getUser button click and checks value for html url', () => {
-        const wrapper = shallow(<GetUserInfo />);
-        const nineSign = <p className="User-data">html url</p>;
-        wrapper.find('button#getUserInfo').simulate('click');
-        getLast(wrapper, 'p');
-        expect(wrapper.contains(nineSign)).toEqual(true);
-    });
-
-    it('renders button getUser button click and checks value for folling url', () => {
-        const wrapper = shallow(<GetUserInfo />);
-        const nineSign = <p className="User-data">folling url</p>;
-        wrapper.find('button#getUserInfo').simulate('click');
-        getLast(wrapper, 'p');
-        expect(wrapper.contains(nineSign)).toEqual(true);
+    it('renders button click message for the button #getUser', () => {
+        const wrapper = mount(<GetUserInfo />);
+        const nineSign = <p className="ElfFormParagraph" id="login">Robin Dudette</p>;
+        wrapper.find('button#getUser').simulate('click');
+        //getFirst(wrapper, 'p');
+        expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });
 
 });
