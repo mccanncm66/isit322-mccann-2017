@@ -4,6 +4,7 @@
   "description": "get github data and formats it",
   "main": "index.js",
   "scripts": {
+    "start": "nodejs git-convert.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
