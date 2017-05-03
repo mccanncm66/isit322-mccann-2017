@@ -2,7 +2,8 @@ import React from 'react';
 import ShowUserInfo from '../components/ShowUserInfo';
 import fieldDefinitions from '../field-definitions';
 import ReactDOM from 'react-dom';
-
+import ElfDebug from '../ElfDebug';
+const elfDebug = new ElfDebug(false);
 
 import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
@@ -19,10 +20,6 @@ describe('My ShowUserInfo test' ,function () {
         bodyData=tempBody;
     });
 
-    function getFirst(wrapper, element) {
-        const ninep = wrapper.find(element).debug();
-        console.log(ninep);
-    };
     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<ShowUserInfo
@@ -38,9 +35,8 @@ describe('My ShowUserInfo test' ,function () {
                                     gitUser={bodyData}
                                     onChange={function() {}}
                                 />);
-        const nineSign = <p className="ElfFormParagraph" id="login">login-unknown</p>
-        ;
-        //getFirst(wrapper, 'p');
+        const nineSign = <p className="ElfFormParagraph" id="login">login-unknown</p>;
+        elfDebug.getFirst(wrapper, 'p');
         expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });
 });

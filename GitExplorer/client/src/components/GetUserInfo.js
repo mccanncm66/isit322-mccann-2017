@@ -7,19 +7,7 @@ import fieldDefinitions from '../field-definitions';
 const logger = new Debug(false);
 
 class GetUserInfo extends Component {
-/*    constructor() {
-        super();
-        this.state = {
-            gitUser: {
-                login: 'asdf',
-                avatar_url:'avatar'
-            }
-        };
 
-        // SET quiet TO false TO SEE DEBUG MESSAGES
-        this.quiet = true;
-        this.debug('GetFoo constructor called');
-    }*/ //Old Constuctor
     constructor() {
         super();
         const tempGitUser = {};
@@ -30,7 +18,7 @@ class GetUserInfo extends Component {
             gitUser: tempGitUser
         };
 
-        logger.log('GetUserInfo constructor called.')
+        logger.log('GetUserInfo constructor called.');
         logger.log(JSON.stringify(this.state.gitUser));
     }
     debug = (message) => {
@@ -39,9 +27,9 @@ class GetUserInfo extends Component {
         }
     };
 
-    fetchUser = (e) => {
+    fetchUser = (event) => {
         logger.log('--GetUserInfo Fetch User Being Called--');
-        e.preventDefault();
+        event.preventDefault();
         const that = this;
         fetch('/api/user')
             .then(function (response) {

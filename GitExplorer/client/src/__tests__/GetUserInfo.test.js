@@ -1,21 +1,14 @@
 import React from 'react';
 import GetUserInfo from '../components/GetUserInfo';
 import ReactDOM from 'react-dom';
+import ElfDebug from '../ElfDebug';
+const elfDebug = new ElfDebug(false);
 
 
 import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
 
 describe('My GetUserInfo test' ,function () {
-
-    const showData = true;
-
-    function getFirst(wrapper, element) {
-        if (showData) {
-            const ninep = wrapper.find(element).first().debug();
-            console.log(ninep);
-        }
-    };
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
@@ -24,7 +17,7 @@ describe('My GetUserInfo test' ,function () {
     it('renders default login data', () => {
         const wrapper = mount(<GetUserInfo />);
         const nineSign = <label className="ElfFormLabel" htmlFor="login">loginName:</label>;
-        //getFirst(wrapper, 'label');
+        //elfDebug.getFirst(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 
