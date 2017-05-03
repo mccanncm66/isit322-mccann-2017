@@ -2,7 +2,7 @@ import React from 'react';
 import GetUserInfo from '../components/GetUserInfo';
 import ReactDOM from 'react-dom';
 import ElfDebug from '../ElfDebug';
-const elfDebug = new ElfDebug(false);
+const elfDebug = new ElfDebug(true);
 
 
 import { shallow } from 'enzyme';
@@ -26,6 +26,7 @@ describe('My GetUserInfo test' ,function () {
         const nineSign = <p className="ElfFormParagraph" id="login">Robin Dudette</p>;
         wrapper.find('button#getUser').simulate('click');
         //getFirst(wrapper, 'p');
+        elfDebug.getIndex(wrapper, 0);
         expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });
 

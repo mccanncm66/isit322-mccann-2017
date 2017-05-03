@@ -30,4 +30,11 @@ export default class ElfDebug {
             console.log(ninep);
         }
     };
+
+    getIndex(wrapper, index) {
+        if (this.showData) {
+            const ninep = wrapper.find('form').childAt(index).type().value;
+            console.log(ninep);
+        }
+    };
 }
