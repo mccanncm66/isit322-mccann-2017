@@ -14,7 +14,7 @@ describe('My GetUserInfo test' ,function () {
         const wrapper = mount(<GetUserInfo />);
         const nineSign = <label className="ElfFormLabel" htmlFor={id}>{value}</label>;
         elfDebug.getIndex(wrapper, 1, true);
-        expect(wrapper.contains(nineSign)).toEqual(true);        
+        expect(wrapper.contains(nineSign)).toEqual(true);
     }
 
     it('renders without crashing', () => {

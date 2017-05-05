@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GetFoo from './components/GetFoo';
 import GetUserInfo from './components/GetUserInfo';
-import Header from './components/Header';
+import ElfHeader from './components/ElfHeader';
 import SmallNumbers from './components/SmallNumbers';
 import './css/index.css';
 
@@ -20,10 +20,10 @@ var numbersInit = {
 
 ReactDOM.render(
     <div>
-        <Header />
-        <GetUserInfo/>
+        <ElfHeader />
+{/*        <GetUserInfo/>
         <GetFoo />
-        <SmallNumbers numbers={numbersInit} />
+        <SmallNumbers numbers={numbersInit} />*/}
     </div>,
 
   document.getElementById('root')
