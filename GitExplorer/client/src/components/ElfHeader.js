@@ -22,19 +22,20 @@ class ElfHeader extends Component {
         return (
             <Router>
                 <div>
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/get-foo">BarFoo</Link></li>
-                        <li><Link to="/get-numbers">Numbers</Link></li>
-                    </ul>
-
                     <div className="App">
                         <div className="App-header">
                             <img src={logo} className="App-logo" alt="logo"/>
                             <h2>Welcome to React</h2>
+
                         </div>
                     </div>
-
+                    <div id="menu-container">
+                        <ul>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/get-foo">BarFoo</Link></li>
+                            <li><Link to="/get-numbers">Numbers</Link></li>
+                        </ul>
+                    </div>
                     <Route exact path="/" component={GetUserInfo}/>
                     <Route exact path="/get-foo" component={GetFoo}/>
                     <Route path="/get-numbers"
@@ -44,6 +45,7 @@ class ElfHeader extends Component {
                            )}
                     />
                 </div>
+
             </Router>
         );
     }

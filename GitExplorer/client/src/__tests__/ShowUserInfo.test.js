@@ -35,7 +35,7 @@ describe('My ShowUserInfo test' ,function () {
                                     gitUser={bodyData}
                                     onChange={function() {}}
                                 />);
-        const nineSign = <p className="ElfFormParagraph" id="login">login-unknown</p>;
+        const nineSign = <p className="ElfFormParagraph" id="login">login unknown</p>;
         elfDebug.getFirst(wrapper, 'p');
         expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });

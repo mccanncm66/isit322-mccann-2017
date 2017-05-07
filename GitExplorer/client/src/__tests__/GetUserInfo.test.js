@@ -13,7 +13,7 @@ describe('My GetUserInfo test' ,function () {
     function getDefault(id, value) {
         const wrapper = mount(<GetUserInfo />);
         const nineSign = <label className="ElfFormLabel" htmlFor={id}>{value}</label>;
-        elfDebug.getIndex(wrapper, 1, true);
+        //elfDebug.getIndex(wrapper, 1, true);
         expect(wrapper.contains(nineSign)).toEqual(true);
     }
 
@@ -23,7 +23,7 @@ describe('My GetUserInfo test' ,function () {
     });
     it('renders default login data', () => {
         const wrapper = mount(<GetUserInfo />);
-        const nineSign = <label className="ElfFormLabel" htmlFor="login">loginName:</label>;
+        const nineSign = <label className="ElfFormLabel" htmlFor="login">login:</label>;
         //elfDebug.getFirst(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
@@ -32,23 +32,21 @@ describe('My GetUserInfo test' ,function () {
         const wrapper = mount(<GetUserInfo />);
         const nineSign = <p className="ElfFormParagraph" id="login">Robin Dudette</p>;
         wrapper.find('button#getUser').simulate('click');
-        //getFirst(wrapper, 'p');
-        elfDebug.getIndex(wrapper, 0);
+        //elfDebug.getIndex(wrapper, 0);
         expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });
 
-    it('renders default login data', () => {
+    it('renders default ai data', () => {
         const wrapper = mount(<GetUserInfo />);
-        const nineSign = <label className="ElfFormLabel" htmlFor="avatar_url">Avatar Url:</label>;
+        const nineSign = <label className="ElfFormLabel" htmlFor="avatar_url">avatar_url:</label>;
         //elfDebug.getFirst(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 
-    it('renders button default message for the  #getUser', () => {
+    it('renders button default message for the  ai #getUser', () => {
         const wrapper = mount(<GetUserInfo />);
-        const nineSign = <p className="ElfFormParagraph" id="avatar_url">aiunknown</p>;
-        //getFirst(wrapper, 'p');
-        elfDebug.getIndex(wrapper, 1, true);
+        const nineSign = <p className="ElfFormParagraph" id="avatar_url">avatar_url unknown</p>;
+        //elfDebug.getIndex(wrapper, 1, true);
         expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });
 
@@ -56,8 +54,7 @@ describe('My GetUserInfo test' ,function () {
         const wrapper = mount(<GetUserInfo />);
         const nineSign = <p className="ElfFormParagraph" id="avatar_url">https://avatars1.githubusercontent.com/u/15935921?v=3</p>;
         wrapper.find('button#getUser').simulate('click');
-        //getFirst(wrapper, 'p');
-        elfDebug.getIndex(wrapper, 1, true);
+        //elfDebug.getIndex(wrapper, 1, true);
         expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });
 

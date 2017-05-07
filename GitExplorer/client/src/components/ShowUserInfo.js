@@ -23,7 +23,7 @@ class ShowUserInfo extends Component {
             <div className="ElfFormRow" key={field.id}>
                 <label className="ElfFormLabel" htmlFor={field.id}>{field.label}:</label>
                 <ElfElements {...field}
-                             value={this.props.gitUser[field.id]}
+                             value={this.props.gitUser[field.id] ? this.props.gitUser[field.id] : "N/A" }
                              onChange={this.props.onChange}
                 />
             </div>

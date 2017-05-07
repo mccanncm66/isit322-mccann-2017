@@ -1,5 +1,5 @@
 ul {
-    background-color: #8a6d3b;
+    background-color: #2aabd2;
     list-style-type: none;
     margin: 0;
     overflow: hidden;
@@ -7,7 +7,7 @@ ul {
 }
 
 li {
-    float: left;
+    background-color: #2aabd2;
 }
 
 li a {
@@ -19,5 +19,15 @@ li a {
 }
 
 li a:hover {
-    background-color: #985f0d;
+    background-color: #1b6d85;
+}
+
+#menu-container {
+    width:300px;
+    height:100px;
+    margin:0 auto;
+    border-bottom:1px solid #2aabd2;
+    border-radius:0 0 15px 15px;
+    background-color: #2aabd2;
+    margin-bottom:20px;
 }
