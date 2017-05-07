@@ -14,8 +14,8 @@ const getData = (url) => {
                 error: {},
                 response: {},
                 body: JSON.stringify({
-                    login: 'Robin Dudette',
-                    'id': 15935921,
+                    'login': 'Robin Dudette',
+                    'id': '15935921',
                     'avatar_url': 'https://avatars1.githubusercontent.com/u/15935921?v=3',
                     'gravatar_id': '',
                     'url': 'https://api.github.com/users/mccanncm66',
