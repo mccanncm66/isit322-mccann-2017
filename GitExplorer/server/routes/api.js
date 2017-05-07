@@ -33,7 +33,7 @@ router.get('/user', function(req, res, next) {
 
 });
 
-router.get('/user', function(req, res, next) {
+router.get('/charlie', function(req, res, next) {
     var options = {
         url: 'https://api.github.com/users/charliecalvert',
         headers: {

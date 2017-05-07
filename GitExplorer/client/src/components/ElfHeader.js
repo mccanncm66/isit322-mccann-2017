@@ -4,6 +4,7 @@
 
 import React, {Component} from 'react';
 import GetUserInfo from './GetUserInfo';
+import GetCharlieInfo from './GetCharlieInfo';
 import GetFoo from './GetFoo';
 import SmallNumbers from './SmallNumbers';
 import numbersInit from '../numbers-data';
@@ -31,9 +32,10 @@ class ElfHeader extends Component {
                     </div>
                     <div id="menu-container">
                         <ul>
-                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/">Caleb's Git Info</Link></li>
                             <li><Link to="/get-foo">BarFoo</Link></li>
                             <li><Link to="/get-numbers">Numbers</Link></li>
+                            <li><Link to="/get-charlie">Charlie's Git Info</Link></li>
                         </ul>
                     </div>
                     <Route exact path="/" component={GetUserInfo}/>
@@ -44,6 +46,7 @@ class ElfHeader extends Component {
                                              numbers={numbersInit} />
                            )}
                     />
+                    <Route exact path="/get-charlie" component={GetCharlieInfo}/>
                 </div>
 
             </Router>
