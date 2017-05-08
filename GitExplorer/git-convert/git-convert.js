@@ -13,7 +13,7 @@ var fs = require('mz/fs');
 var json = {};
 function readFile(fileName) {
     return new Promise(function (resolve, reject) {
-        fs.readFile('./git-user.json')
+        fs.readFile(fileName)
             .then(contents => resolve(contents))
             .catch(err => debug(err));
     });
@@ -39,6 +39,7 @@ readFile('git-user.json')
             });
         }
     }
-
     console.log(fieldDefinition);
+    return fieldDefinition;
+
 });
