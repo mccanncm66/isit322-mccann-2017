@@ -23,8 +23,8 @@ describe('My GetUserInfo test' ,function () {
     });
 
     /*****************************login******************************************************/
-    elfTester.labelTest('login');
-    elfTester.defaultValueTest('login', 'login unknown');
+    elfTester.labelTest('login', false);
+    elfTester.defaultValueTest('login', 'login unknown', false);
     elfTester.clickedValueTest('login', 'Robin Dudette', false);
     /*****************************avatar_url******************************************************/
     elfTester.labelTest('avatar_url');

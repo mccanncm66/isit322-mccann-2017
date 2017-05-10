@@ -52,9 +52,9 @@ class GetUserInfo extends Component {
         return (
             <div className="App">
                 <ShowUserInfo
-                    fields={fieldDefinitions}
-                    gitUser={this.state.gitUser}
-                    onChange={this.fetchUser}
+                    fields={this.props.fields}
+                    gitUser={this.props.gitUser}
+                    onChange={this.props.onChange}
                 />
             </div>
         );
