@@ -1,8 +1,8 @@
 import React from 'react';
-import GetUserInfo from '../components/GetUserInfo';
 import ReactDOM from 'react-dom';
 import ElfDebug from '../ElfDebug';
 import ElfTest from '../ElfTestCreator';
+import DataMaven from '../components/DataMaven';
 const elfDebug = new ElfDebug(true);
 const elfTester = new ElfTest();
 import { shallow } from 'enzyme';
@@ -11,7 +11,7 @@ import { mount } from 'enzyme';
 describe('My GetUserInfo test' ,function () {
 
     function getDefault(id, value) {
-        const wrapper = mount(<GetUserInfo />);
+        const wrapper = mount(<DataMaven />);
         const nineSign = <label className="ElfFormLabel" htmlFor={id}>{value}</label>;
         //elfDebug.getIndex(wrapper, 1, true);
         expect(wrapper.contains(nineSign)).toEqual(true);
@@ -19,7 +19,7 @@ describe('My GetUserInfo test' ,function () {
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<GetUserInfo />, div);
+        ReactDOM.render(<DataMaven />, div);
     });
 
     /*****************************login******************************************************/
