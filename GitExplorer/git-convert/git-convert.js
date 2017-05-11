@@ -12,7 +12,7 @@ debug('this is a test');
 var fs = require('mz/fs');
 var json = {};
 function readFile(fileName) {
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
         fs.readFile('./git-user.json')
             .then(contents => resolve(contents))
             .catch(err => debug(err));
@@ -20,9 +20,9 @@ function readFile(fileName) {
 }
 
 readFile('git-user.json')
-    .then(function (text) {
+    .then(function(text) {
         return Promise.resolve(JSON.parse(text));
-    }).then(function (parsedJson) {
+    }).then(function(parsedJson) {
 
     var fieldDefinition = [];
 

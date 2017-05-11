@@ -8,7 +8,7 @@ const elfTester = new ElfTest();
 import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
 
-describe('My GetUserInfo test' ,function () {
+describe('My GetUserInfo test' ,function() {
 
     function getDefault(id, value) {
         const wrapper = mount(<DataMaven />);
