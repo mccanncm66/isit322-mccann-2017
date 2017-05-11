@@ -39,7 +39,7 @@ readFile('git-user.json')
             });
         }
     }
+
     console.log(fieldDefinition);
-    return fieldDefinition;
 
 });
