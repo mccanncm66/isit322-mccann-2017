@@ -3,14 +3,8 @@
  */
 
 import React, {Component} from 'react';
-//import GetUserInfo from './GetUserInfo';
-//import GetCharlieInfo from './GetCharlieInfo';
-//import GetFoo from './GetFoo';
-//import SmallNumbers from './SmallNumbers';
-//import numbersInit from '../numbers-data';
 import logo from '../images/Inkscape-small.svg';
 import {
-    BrowserRouter as Router,
     Link
 } from 'react-router-dom'
 import '../css/App.css';
