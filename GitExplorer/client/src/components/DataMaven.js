@@ -8,11 +8,12 @@ import GetFoo from './GetFoo';
 import SmallNumbers from './SmallNumbers';
 import numbersInit from '../numbers-data';
 import fieldDefinitions from '../field-definitions';
+import ShowNewGist from './ShowNewGist';
 import {
     BrowserRouter as Router,
     Route
 } from 'react-router-dom'
-const logger = new Debug(false);
+const logger = new Debug('data-maven');
 
 class DataMaven extends Component {
 
@@ -23,7 +24,11 @@ class DataMaven extends Component {
             tempGitUser[value.id] = value.sample;
         }
         this.state = {
-            gitUser: tempGitUser
+            gitUser: tempGitUser,
+            gitGist: {
+                url: 'url-qux',
+                description: 'description-qux'
+            }
         };
 
         logger.log('GetUserInfo constructor called.');
@@ -65,7 +70,7 @@ class DataMaven extends Component {
                 return response.json();
             }).then(function (json) {
             //console.log('parsed json', json);
-            var body = JSON.parse(json.body);
+            var body = json.result;
             logger.log(JSON.stringify(body));
             that.setState({gitUser: body});
         }).catch(function (ex) {
@@ -91,6 +96,12 @@ class DataMaven extends Component {
                        />
 
                     <Route path='/get-foo' component={GetFoo}/>
+                    <Route path='/show-new-gist' render={(props) => (
+                        <ShowNewGist {...props}
+                                        gitGist={this.state.gitGist}
+                                        fetchGist={this.fetchGist}
+                                     />
+                    )}/>
                     <Route path='/get-numbers'
                            render={(props) => (
                                <SmallNumbers {...props}

@@ -8,7 +8,7 @@ const elfTester = new ElfTest();
 import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
 
-describe('My GetUserInfo test' ,function() {
+describe('My GetUserInfo test' , function() {
 
     function getDefault(id, value) {
         const wrapper = mount(<DataMaven />);
@@ -22,39 +22,39 @@ describe('My GetUserInfo test' ,function() {
         ReactDOM.render(<DataMaven />, div);
     });
 
-    /*****************************login******************************************************/
+    /*****************************login***********************************************************************/
     elfTester.labelTest('login', false);
     elfTester.defaultValueTest('login', 'login unknown', false);
     elfTester.clickedValueTest('login', 'Robin Dudette', false);
-    /*****************************avatar_url******************************************************/
+    /*****************************avatar_url******************************************************************/
     elfTester.labelTest('avatar_url');
     elfTester.defaultValueTest('avatar_url', 'avatar_url unknown');
     elfTester.clickedValueTest('avatar_url', 'https://avatars1.githubusercontent.com/u/15935921?v=3', false);
-    /*****************************id******************************************************/
+    /*****************************id****************************************************************************/
     elfTester.labelTest('id');
     elfTester.defaultValueTest('id', 'id unknown');
     elfTester.clickedValueTest('id', '15935921', false);
-    /*****************************gravatar_id******************************************************/
+    /*****************************gravatar_id*********************************************************************/
     elfTester.labelTest('gravatar_id');
     elfTester.defaultValueTest('gravatar_id', 'gravatar_id unknown');
     elfTester.clickedValueTest('gravatar_id', 'N/A', false);
-    /*****************************url******************************************************/
+    /*****************************url************************************************************************/
     elfTester.labelTest('url');
     elfTester.defaultValueTest('url', 'url unknown');
     elfTester.clickedValueTest('url', 'https://api.github.com/users/mccanncm66', false);
-    /*****************************html_url******************************************************/
+    /*****************************html_url*********************************************************************/
     elfTester.labelTest('html_url');
     elfTester.defaultValueTest('html_url', 'html_url unknown');
     elfTester.clickedValueTest('html_url', 'https://github.com/mccanncm66', false);
-    /*****************************followers_url******************************************************/
+    /*****************************followers_url******************************************************************/
     elfTester.labelTest('followers_url');
     elfTester.defaultValueTest('followers_url', 'followers_url unknown');
     elfTester.clickedValueTest('followers_url', 'https://api.github.com/users/mccanncm66/followers', false);
-    /*****************************following_url******************************************************/
+    /*****************************following_url*********************************************************************/
     elfTester.labelTest('following_url');
     elfTester.defaultValueTest('following_url', 'following_url unknown');
     elfTester.clickedValueTest('following_url', 'https://api.github.com/users/mccanncm66/following{/other_user}', false);
-    /*****************************gists_url******************************************************/
+    /*****************************gists_url***************************************************************************/
     elfTester.labelTest('gists_url');
     elfTester.defaultValueTest('gists_url', 'gists_url unknown');
     elfTester.clickedValueTest('gists_url', 'https://api.github.com/users/mccanncm66/gists{/gist_id}', false);
