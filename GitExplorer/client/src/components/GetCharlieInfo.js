@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
-import Debug from '../elf-logger';
+import Debug from '../ElfLogger';
 import ShowUserInfo from './ShowUserInfo'
 import fieldDefinitions from '../field-definitions';
 const logger = new Debug(false);

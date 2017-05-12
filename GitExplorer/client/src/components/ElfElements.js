@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../css/forms.css';
-import Debug from '../elf-logger';
+import Debug from '../ElfLogger';
 const logger = new Debug(false);
 
 
