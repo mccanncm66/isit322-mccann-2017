@@ -22,6 +22,9 @@ export class ShowJso extends Component {
         return (
             <div className="App">
                 <p className="App-intro">
+                    Full Name: {this.props.gitJso.full_name}
+                </p>
+                <p className="App-intro">
                     Id: {this.props.gitJso.id}
                 </p>
                 <p className="App-intro">
@@ -30,7 +33,7 @@ export class ShowJso extends Component {
                 <p className="App-intro">
                     Description: {this.props.gitJso.description}
                 </p>
-                <button id="getGist" onClick={this.props.fetchJSO}>Get Gist</button> <br />
+                <button id="getGist" onClick={this.props.fetchJSO}>Get JsObjects</button> <br />
             </div>
         );
     }

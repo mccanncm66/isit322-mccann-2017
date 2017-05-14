@@ -13,7 +13,7 @@ import ShowJso from './ShowJso';
 import {
     BrowserRouter as Router,
     Route
-} from 'react-router-dom'
+} from 'react-router-dom';
 const logger = new Debug('data-maven');
 
 class DataMaven extends Component {
@@ -32,6 +32,7 @@ class DataMaven extends Component {
                 description: 'description-qux'
             },
             gitJso: {
+                full_name: 'full_name-qux',
                 id: 'id-qux',
                 url: 'url-qux',
                 description: 'description-qux'
@@ -53,15 +54,15 @@ class DataMaven extends Component {
         event.preventDefault();
         const that = this;
         fetch('/api/user')
-            .then(function (response) {
+            .then((response) => {
                 logger.log(JSON.stringify(response));
                 return response.json();
-            }).then(function (json) {
+            }).then((json) => {
             //console.log('parsed json', json);
             const body = JSON.parse(json.body);
             logger.log(JSON.stringify(body));
             that.setState({gitUser: body});
-        }).catch(function (ex) {
+        }).catch((ex) => {
             // DISPLAY WITH LOGGER
         });
 
@@ -72,15 +73,15 @@ class DataMaven extends Component {
         event.preventDefault();
         const that = this;
         fetch('/api/gist-test')
-            .then(function (response) {
+            .then((response) => {
                 //logger.log(JSON.stringify(response));
                 return response.json();
-            }).then(function (json) {
+            }).then((json) => {
             //console.log('parsed json', json);
             const body = json.result;
             //logger.log(JSON.stringify(body));
             that.setState({gitGist: body});
-        }).catch(function (ex) {
+        }).catch((ex) => {
             logger.log('ERROR:', ex);
             // DISPLAY WITH LOGGER
         });
@@ -92,26 +93,26 @@ class DataMaven extends Component {
         event.preventDefault();
         const that = this;
         fetch('/api/charlie-jso')
-            .then(function (response) {
+            .then((response) => {
                 //logger.log(JSON.stringify(response));
                 return response.json();
-            }).then(function (json) {
+            }).then((json) => {
             //console.log('parsed json', json);
             const body = JSON.parse(json.body);
             //logger.log(JSON.stringify(body));
             that.setState({gitJso: body});
-        }).catch(function (ex) {
+        }).catch((ex) => {
             logger.log('ERROR:', ex);
             // DISPLAY WITH LOGGER
         });
 
     };
 
-    render() {
+    render = () => {
         //logger.log('--DataMaven Render Being Called--');
         //logger.log(JSON.stringify(this.state.gitUser));
         return (
-            <Router>
+            <Router history="">
                 <div>
                     <ElfHeader/>
                     <Route exact path='/'
@@ -147,7 +148,6 @@ class DataMaven extends Component {
         );
     }
 }
-// <Route exact path='/' component={GetUserInfo}/>
 
 export default DataMaven;
 

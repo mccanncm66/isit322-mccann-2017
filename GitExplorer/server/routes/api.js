@@ -9,12 +9,10 @@ const GitHub = require('github-api');
 
 /* GET home page. */
 router.get('/foo', function(request, response, next) {
-    const message = { 'result': 'success', 'foo': 'bar', 'file': 'api.js' };
+    const message = {'result': 'success', 'foo': 'bar', 'file': 'api.js'};
     console.log('Foo called on server with message:', message);
     response.send(message);
 });
-
-
 
 router.get('/user', function(req, res, next) {
     const options = {
@@ -79,8 +77,8 @@ router.get('/gist-test', function(request, response) {
         public: true,
         description: 'My first gist',
         files: {
-            "file1.txt": {
-                content: "Aren't gists great!"
+            'file1.txt': {
+                content: 'Aren\'t gists great!'
             }
         }
     }).then(function({data}) {
@@ -93,7 +91,7 @@ router.get('/gist-test', function(request, response) {
         console.log('RETRIEVED', retrievedGist);
         response.status(200).send({'result': retrievedGist});
     }).catch(function(err) {
-        "use strict";
+        'use strict';
         response.status(500).send({'result': err});
     });
 
@@ -118,7 +116,5 @@ router.get('/charlie-jso', function(req, res, next) {
     });
 
 });
-
-
 
 module.exports = router;
