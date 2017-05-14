@@ -72,7 +72,7 @@ class DataMaven extends Component {
             //console.log('parsed json', json);
             var body = json.result;
             logger.log(JSON.stringify(body));
-            that.setState({gitUser: body});
+            that.setState({gitGist: body});
         }).catch(function (ex) {
             // DISPLAY WITH LOGGER
         });
