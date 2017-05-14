@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
-import Debug from '../ElfLogger';
+import Debug from '../elf-logger';
 import ElfHeader from './ElfHeader';
 import GetUserInfo from './GetUserInfo';
 import GetFoo from './GetFoo';
@@ -31,8 +31,8 @@ class DataMaven extends Component {
             }
         };
 
-        //logger.log('GetUserInfo constructor called.');
-        //logger.log(JSON.stringify(this.state.gitUser));
+        logger.log('GetUserInfo constructor called.');
+        logger.log(JSON.stringify(this.state.gitUser));
     }
 
     debug = (message) => {
@@ -42,7 +42,7 @@ class DataMaven extends Component {
     };
 
     fetchUser = (event) => {
-        //logger.log('--GetUserInfo Fetch User Being Called--');
+        logger.log('--GetUserInfo Fetch User Being Called--');
         event.preventDefault();
         const that = this;
         fetch('/api/user')
@@ -51,7 +51,7 @@ class DataMaven extends Component {
                 return response.json();
             }).then(function (json) {
             //console.log('parsed json', json);
-            const body = JSON.parse(json.body);
+            var body = JSON.parse(json.body);
             logger.log(JSON.stringify(body));
             that.setState({gitUser: body});
         }).catch(function (ex) {
@@ -61,28 +61,27 @@ class DataMaven extends Component {
     };
 
     fetchGist = (event) => {
-        logger.log('--DataMaven Fetch Gist Being Called--');
+        logger.log('--GetUserInfo Fetch Gist Being Called--');
         event.preventDefault();
         const that = this;
         fetch('/api/gist-test')
             .then(function (response) {
-                //logger.log(JSON.stringify(response));
+                logger.log(JSON.stringify(response));
                 return response.json();
             }).then(function (json) {
             //console.log('parsed json', json);
-            const body = json.result;
-            //logger.log(JSON.stringify(body));
-            that.setState({gitGist: body});
+            var body = json.result;
+            logger.log(JSON.stringify(body));
+            that.setState({gitUser: body});
         }).catch(function (ex) {
-            logger.log('ERROR:', ex);
             // DISPLAY WITH LOGGER
         });
 
     };
 
     render() {
-        //logger.log('--DataMaven Render Being Called--');
-        //logger.log(JSON.stringify(this.state.gitUser));
+        logger.log('--GetUserInfo Render Being Called--');
+        logger.log(JSON.stringify(this.state.gitUser));
         return (
             <Router>
                 <div>

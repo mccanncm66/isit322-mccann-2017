@@ -1,7 +1,7 @@
 /**
  * Created by bcuser on 4/30/17.
  */
-import Logger from './ElfLogger';
+import Logger from './elf-logger';
 const logger = new Logger(true);
 
 const ElfTestShow = class {

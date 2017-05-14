@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
-import Logger from '../ElfLogger';
+import Logger from '../elf-logger';
 const logger = new Logger('show-new-gist');
 //import mock from './mocks';
 //var fetch = require('../mocks').fetch;
@@ -27,7 +27,7 @@ class ShowNewGist extends Component {
                 <p className="App-intro">
                     Description: {this.props.gitGist.description}
                 </p>
-                <button className="getUser" onClick={this.props.fetchGist}>Get Gist</button> <br />
+                <button className="getGist" onClick={this.props.fetchGist}>Get Gist</button> <br />
             </div>
         );
     }

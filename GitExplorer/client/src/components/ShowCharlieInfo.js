@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import ElfElements from './ElfElements';
-import Debug from '../ElfLogger'
+import Debug from '../elf-logger'
 const logger = new Debug(false);
 
 class ShowUserInfo extends Component {
