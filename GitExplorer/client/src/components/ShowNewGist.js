@@ -6,7 +6,7 @@ const logger = new Logger('show-new-gist');
 //import mock from './mocks';
 //var fetch = require('../mocks').fetch;
 
-class ShowNewGist extends Component {
+export class ShowNewGist extends Component {
     constructor() {
         super();
         logger.log("ShowNewGist being called");
@@ -22,12 +22,15 @@ class ShowNewGist extends Component {
         return (
             <div className="App">
                 <p className="App-intro">
+                    Id: {this.props.gitGist.id}
+                </p>
+                <p className="App-intro">
                     Url: {this.props.gitGist.url}
                 </p>
                 <p className="App-intro">
                     Description: {this.props.gitGist.description}
                 </p>
-                <button className="getUser" onClick={this.props.fetchGist}>Get Gist</button> <br />
+                <button id="getGist" onClick={this.props.fetchGist}>Get Gist</button> <br />
             </div>
         );
     }

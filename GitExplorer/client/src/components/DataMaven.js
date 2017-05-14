@@ -26,6 +26,7 @@ class DataMaven extends Component {
         this.state = {
             gitUser: tempGitUser,
             gitGist: {
+                id: 'id-qux',
                 url: 'url-qux',
                 description: 'description-qux'
             }
