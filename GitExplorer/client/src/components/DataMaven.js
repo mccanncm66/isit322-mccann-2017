@@ -9,6 +9,7 @@ import SmallNumbers from './SmallNumbers';
 import numbersInit from '../numbers-data';
 import fieldDefinitions from '../field-definitions';
 import ShowNewGist from './ShowNewGist';
+import ShowJso from './ShowJso';
 import {
     BrowserRouter as Router,
     Route
@@ -26,6 +27,11 @@ class DataMaven extends Component {
         this.state = {
             gitUser: tempGitUser,
             gitGist: {
+                id: 'id-qux',
+                url: 'url-qux',
+                description: 'description-qux'
+            },
+            gitJso: {
                 id: 'id-qux',
                 url: 'url-qux',
                 description: 'description-qux'
@@ -81,6 +87,26 @@ class DataMaven extends Component {
 
     };
 
+    fetchJSO = (event) => {
+        logger.log('--DataMaven FetchJSO Being Called--');
+        event.preventDefault();
+        const that = this;
+        fetch('/api/charlie-jso')
+            .then(function (response) {
+                //logger.log(JSON.stringify(response));
+                return response.json();
+            }).then(function (json) {
+            //console.log('parsed json', json);
+            const body = JSON.parse(json.body);
+            //logger.log(JSON.stringify(body));
+            that.setState({gitJso: body});
+        }).catch(function (ex) {
+            logger.log('ERROR:', ex);
+            // DISPLAY WITH LOGGER
+        });
+
+    };
+
     render() {
         //logger.log('--DataMaven Render Being Called--');
         //logger.log(JSON.stringify(this.state.gitUser));
@@ -103,6 +129,12 @@ class DataMaven extends Component {
                                         gitGist={this.state.gitGist}
                                         fetchGist={this.fetchGist}
                                      />
+                    )}/>
+                    <Route path='/charlie-jso' render={(props) => (
+                        <ShowJso {...props}
+                                    gitJso={this.state.gitJso}
+                                     fetchJSO={this.fetchJSO}
+                        />
                     )}/>
                     <Route path='/get-numbers'
                            render={(props) => (
