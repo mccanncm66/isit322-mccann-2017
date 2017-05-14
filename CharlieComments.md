@@ -98,8 +98,8 @@ I provide a link to the comments, but if you can't find them, just go to your on
 
 ## Comment Location
 
-My comments are here:
+My comments are in your **charlie-props** branch. More specifically, here:
 
-
+https://github.com/mccanncm66/isit322-mccann-2017/blob/charlie-props/CharlieComments.md
 
 And also attached, but easier to read through the above link to your repository.
