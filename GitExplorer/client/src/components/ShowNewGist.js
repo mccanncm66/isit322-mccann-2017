@@ -22,10 +22,16 @@ export class ShowNewGist extends Component {
         return (
             <div className="App">
                 <p className="App-intro">
+                    Create On: {this.props.gitGist.created_at}
+                </p>
+                <p className="App-intro">
                     Id: {this.props.gitGist.id}
                 </p>
                 <p className="App-intro">
-                    Url: {this.props.gitGist.url}
+                    Url: <a href={this.props.gitGist.url}>{this.props.gitGist.url}</a>
+                </p>
+                <p className="App-intro">
+                    Html Url: <a href={this.props.gitGist.html_url}>{this.props.gitGist.html_url}</a>
                 </p>
                 <p className="App-intro">
                     Description: {this.props.gitGist.description}

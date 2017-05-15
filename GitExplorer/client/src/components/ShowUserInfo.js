@@ -33,12 +33,14 @@ class ShowUserInfo extends Component {
 
     render() {
         return (
-                <form className="Form">{
+                <form className="Form">
+                    <button id="getUser" onClick={this.props.onChange}>Get Git User</button>
+                    {
                     this.props.fields.map((field, index) => {
                         return this.getForm(field, index)
                     })
                 }
-                    <button id="getUser" onClick={this.props.onChange}>Get Git User</button>
+
                 </form>
         );
     }

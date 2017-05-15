@@ -10,9 +10,11 @@ import { mount } from 'enzyme';
 import ShowJso from '../components/ShowJso';
 let gitJso =
     {
+        full_name: 'full_name-qux',
         id: 'id-qux',
         url: 'url-qux',
-        description: 'description-qux'
+        description: 'description-qux',
+        html_url: 'foobar',
     };
 
 describe('My GetJSO test' , () => {
@@ -42,6 +44,16 @@ describe('My GetJSO test' , () => {
     it('renders initial value of paragraph with description', () => {
         const wrapper = shallow(<ShowJso gitJso={gitJso} />);
         const nineSign = <p className='App-intro'>Description: description-qux</p>;
+        expect(wrapper.contains(nineSign)).toEqual(true);
+    });
+    it('renders initial value of paragraph with full name', () => {
+        const wrapper = shallow(<ShowJso gitJso={gitJso} />);
+        const nineSign = <p className='App-intro'>Full Name: full_name-qux</p>;
+        expect(wrapper.contains(nineSign)).toEqual(true);
+    });
+    it('renders initial value of paragraph with Html Url', () => {
+        const wrapper = shallow(<ShowJso gitJso={gitJso} />);
+        const nineSign = <p className='App-intro'>Html Url: <a href='foobar'>foobar</a></p>;
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 

@@ -13,7 +13,9 @@ let gitGist =
     {
         id: 'id-qux',
         url: 'url-qux',
-        description: 'description-qux'
+        description: 'description-qux',
+        html_url: 'foobar',
+        created_at: 'not today'
     };
 
 describe('My GetGist test' , () => {
@@ -32,16 +34,31 @@ describe('My GetGist test' , () => {
     it('renders initial value of paragraph with id', () => {
         const wrapper = shallow(<ShowNewGist gitGist={gitGist} />);
         const nineSign = <p className='App-intro'>Id: id-qux</p>;
+        //elfDebug.getAll(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
     it('renders initial value of paragraph with Url', () => {
         const wrapper = shallow(<ShowNewGist gitGist={gitGist} />);
-        const nineSign = <p className='App-intro'>Url: url-qux</p>;
+        const nineSign = <p className='App-intro'>Url: <a href='url-qux'>url-qux</a></p>;
+        //elfDebug.getAll(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
+    });
+    it('renders initial value of paragraph with html_url', () => {
+        const wrapper = shallow(<ShowNewGist gitGist={gitGist} />);
+        const nineSign = <p className='App-intro'>Html Url: <a href='foobar'>foobar</a></p>;
+        //elfDebug.getAll(wrapper, 'p');
+        expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);
     });
     it('renders initial value of paragraph with description', () => {
         const wrapper = shallow(<ShowNewGist gitGist={gitGist} />);
         const nineSign = <p className='App-intro'>Description: description-qux</p>;
+        //elfDebug.getAll(wrapper, 'p');
+        expect(wrapper.contains(nineSign)).toEqual(true);
+    });
+    it('renders initial value of paragraph with date', () => {
+        const wrapper = shallow(<ShowNewGist gitGist={gitGist} />);
+        const nineSign = <p className='App-intro'>Create On: not today</p>;
+        //elfDebug.getAll(wrapper, 'p');
         expect(wrapper.contains(nineSign)).toEqual(true);
     });
 

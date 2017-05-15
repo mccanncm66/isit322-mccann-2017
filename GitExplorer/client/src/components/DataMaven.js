@@ -28,20 +28,23 @@ class DataMaven extends Component {
             gitUser: tempGitUser,
             gitGist: {
                 id: 'id-qux',
-                url: 'url-qux',
-                description: 'description-qux'
+                url: '',
+                html_url: '',
+                description: 'description-qux',
+                created_at:''
             },
             gitJso: {
                 full_name: 'full_name-qux',
                 id: 'id-qux',
                 url: 'url-qux',
-                description: 'description-qux'
+                description: 'description-qux',
+                html_url: 'foobar',
             }
         };
 
         //logger.log('GetUserInfo constructor called.');
         //logger.log(JSON.stringify(this.state.gitUser));
-    }
+    };
 
     debug = (message) => {
         if (!this.quiet) {
@@ -146,7 +149,7 @@ class DataMaven extends Component {
                 </div>
             </Router>
         );
-    }
+    };
 }
 
 export default DataMaven;

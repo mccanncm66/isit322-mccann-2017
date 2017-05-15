@@ -31,6 +31,9 @@ export class ShowJso extends Component {
                     Url: {this.props.gitJso.url}
                 </p>
                 <p className="App-intro">
+                    Html Url: <a href={this.props.gitJso.html_url}>{this.props.gitJso.html_url}</a>
+                </p>
+                <p className="App-intro">
                     Description: {this.props.gitJso.description}
                 </p>
                 <button id="getGist" onClick={this.props.fetchJSO}>Get JsObjects</button> <br />
