@@ -46,9 +46,10 @@ const ElfLogger = class {
         if (process.env.REACT_APP_ELF_LOGGER) {
             const envs = process.env.REACT_APP_ELF_LOGGER.split(';');
             if (envs.indexOf(this.logger) > -1) {
-                console.info('%c %s: %c %s %s %s',
+/*                console.info('%c %s: %c %s %s %s',
                     this.titleStyle, this.logger, this.textStyle,
-                    message1, message2, message3);
+                    message1, message2, message3);*/
+                    console.info(this.logger, message1, message2, message3);
             }
         }
     }
