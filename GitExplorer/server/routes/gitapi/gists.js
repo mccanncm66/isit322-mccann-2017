@@ -9,6 +9,9 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 const GitHub = require('github-api');
+const Logger = require('../ElfLogger');
+const logger = new Logger('gitapi-gists');
+//const loggerDetails = new Logger('gitapi-gists:details'); //could have two different loggers
 
 router.get('/charlie', function(req, res, next) {
     const options = {
@@ -66,7 +69,7 @@ router.get('/gist-test', function(request, response) {
     }).then(function({data}) {
         let retrievedGist = data;
         // do interesting things
-        console.log('RETRIEVED', retrievedGist);
+        logger.log('RETRIEVED', retrievedGist);
         response.status(200).send({'result': retrievedGist});
     }).catch(function(err) {
         'use strict';
@@ -80,22 +83,26 @@ router.get('/get-gist-list', (request, response) => {
     const me = gh.getUser();
     me.listGists(
     ).then(function({data}) {
-        console.log('USER PROMISE', data);
+        logger.log('USER PROMISE', data);
 /*        const results = gists.map((gist) => {
             //Return Object with 4 props
         });*/
         const results = data.map((gist) => (
             {
                 url: gist.url,
-                html_url: gist.html_url
+                html_url: gist.html_url,
+                id: gist.id,
+                description: gist.description,
+                git_pull_url: gist.git_pull_url
+
             }
         ));
         response.status(200).send({
-            //'count': results.length,
+            'count': results.length,
             'result': results
         });
     }).catch(function(err) {
-        console.log('USER Promise Rejected', err);
+        logger.log('USER Promise Rejected', err);
         response.status(500).send({'result': err});
     });
 });

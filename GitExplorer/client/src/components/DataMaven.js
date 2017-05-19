@@ -9,6 +9,7 @@ import SmallNumbers from './SmallNumbers';
 import numbersInit from '../numbers-data';
 import fieldDefinitions from '../field-definitions';
 import ShowNewGist from './ShowNewGist';
+import GistLister from './GistLister';
 import ShowJso from './ShowJso';
 import {
     BrowserRouter as Router,
@@ -31,7 +32,7 @@ class DataMaven extends Component {
                 url: '',
                 html_url: '',
                 description: 'description-qux',
-                created_at:''
+                created_at: ''
             },
             gitJso: {
                 full_name: 'full_name-qux',
@@ -39,9 +40,10 @@ class DataMaven extends Component {
                 url: 'url-qux',
                 description: 'description-qux',
                 html_url: 'foobar',
-            }
+            },
+            gistList: [{html_url: 'foo'}]
         };
-
+        //this.fetchGistLists = this.fetchGistLists.bind(this);
         //logger.log('GetUserInfo constructor called.');
         //logger.log(JSON.stringify(this.state.gitUser));
     };
@@ -56,7 +58,7 @@ class DataMaven extends Component {
         //logger.log('--GetUserInfo Fetch User Being Called--');
         event.preventDefault();
         const that = this;
-        fetch('/api/user')
+        fetch('/gitapi/user')
             .then((response) => {
                 logger.log(JSON.stringify(response));
                 return response.json();
@@ -75,7 +77,7 @@ class DataMaven extends Component {
         logger.log('--DataMaven Fetch Gist Being Called--');
         event.preventDefault();
         const that = this;
-        fetch('/api/gist-test')
+        fetch('/gitapi/gists/gist-test')
             .then((response) => {
                 //logger.log(JSON.stringify(response));
                 return response.json();
@@ -91,11 +93,31 @@ class DataMaven extends Component {
 
     };
 
+    fetchGistLists = (event) => {
+        logger.log('--DataMaven Fetch Gist Lists Being Called--');
+        event.preventDefault();
+        const that = this;
+        fetch('/gitapi/gists/get-gist-list')
+            .then((response) => {
+                //logger.log(JSON.stringify(response));
+                return response.json();
+            }).then((json) => {
+            //console.log('parsed json', json);
+            const body = json.result;
+            //logger.log(JSON.stringify(body));
+            that.setState({gistList: body});
+        }).catch((ex) => {
+            logger.log('ERROR:', ex);
+            // DISPLAY WITH LOGGER
+        });
+
+    };
+
     fetchJSO = (event) => {
         logger.log('--DataMaven FetchJSO Being Called--');
         event.preventDefault();
         const that = this;
-        fetch('/api/charlie-jso')
+        fetch('/gitapi/user/charlie-jso')
             .then((response) => {
                 //logger.log(JSON.stringify(response));
                 return response.json();
@@ -133,6 +155,12 @@ class DataMaven extends Component {
                                         gitGist={this.state.gitGist}
                                         fetchGist={this.fetchGist}
                                      />
+                    )}/>
+                    <Route path='/get-gist-list' render={(props) => (
+                        <GistLister {...props}
+                                     gistList={this.state.gistList}
+                                     fetchGistLists={this.fetchGistLists}
+                        />
                     )}/>
                     <Route path='/charlie-jso' render={(props) => (
                         <ShowJso {...props}

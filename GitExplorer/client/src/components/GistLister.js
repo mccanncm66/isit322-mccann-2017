@@ -15,11 +15,12 @@ class GistLister extends Component {
         return (
             <div>
                 <h2>Gist Lister</h2>
+                <ul><li>{this.props.gistList[0]['html_url']}</li></ul>
                 <ul></ul>
                 <ul></ul>
                 <ul></ul>
                 <ul></ul>
-                <ul></ul>
+                <button id="gistList" onClick={this.props.fetchGistLists}>Get Gist List</button> <br />
             </div>
         );
     }

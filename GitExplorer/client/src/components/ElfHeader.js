@@ -28,8 +28,9 @@ class ElfHeader extends Component {
                             <li><Link to='/'>Caleb's Git Info</Link></li>
                             <li><Link to='/get-foo'>BarFoo</Link></li>
                             <li><Link to='/get-numbers'>Numbers</Link></li>
-                            <li><Link to='/show-new-gist'>Gist</Link></li>
+                            <li><Link to='/show-new-gist'>Create Gist</Link></li>
                             <li><Link to='/charlie-jso'>Show JsObjects</Link></li>
+                            <li><Link to='/get-gist-list'>GetGist List</Link></li>
                         </ul>
                     </div>
                 </div>
