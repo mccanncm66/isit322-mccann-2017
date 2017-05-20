@@ -40,5 +40,5 @@ readFile('git-user.json')
         }
     }
 
-    console.log(fieldDefinition);
+    console.log(JSON.stringify(fieldDefinition, null, 4));
 });
