@@ -36,7 +36,7 @@ export class ShowNewGist extends Component {
                 <p className="App-intro">
                     Description: {this.props.gitGist.description}
                 </p>
-                <button id="getGist" onClick={this.props.fetchGist}>Get Gist</button> <br />
+                <button id="getGist" onClick={this.props.fetchGist}>Create Gist</button> <br />
             </div>
         );
     }

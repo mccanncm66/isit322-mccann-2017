@@ -84,9 +84,6 @@ router.get('/get-gist-list', (request, response) => {
     me.listGists(
     ).then(function({data}) {
         logger.log('USER PROMISE', data);
-/*        const results = gists.map((gist) => {
-            //Return Object with 4 props
-        });*/
         const results = data.map((gist) => (
             {
                 url: gist.url,

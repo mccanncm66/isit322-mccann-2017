@@ -52,7 +52,12 @@ class ElfElements extends Component {
             }
 
             default:
-                return <input {...common} type="text"/>;
+                return <p
+                    className="ElfFormParagraph"
+                    id={this.props.id}
+
+                    onChange={this.props.onChange}
+                >{this.props.value}</p>;
         }
     }
 }

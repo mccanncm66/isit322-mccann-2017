@@ -8,7 +8,6 @@ import DataMaven from './components/DataMaven';
 import ElfDebug from './ElfDebug';
 const elfDebug = new ElfDebug(true);
 
-
 export default class ElfTestCreator {
     constructor(){
     }
@@ -16,7 +15,7 @@ export default class ElfTestCreator {
     labelTest(label, test) {
         it('renders**** ' + label, () => {
             const wrapper = mount(<DataMaven />);
-            const nineSign = <label className="ElfFormLabel" htmlFor={label}>{label}:</label>;
+            const nineSign = <label className='ElfFormLabel' htmlFor={label}>{label}:</label>;
             if(test) {
                 elfDebug.getAll(wrapper, 'p');
             }
@@ -27,7 +26,7 @@ export default class ElfTestCreator {
     defaultValueTest(label, value, test) {
         it('renders default value for the ' + label, () => {
             const wrapper = mount(<DataMaven />);
-            const nineSign = <p className="ElfFormParagraph" id={label}>{value}</p>;
+            const nineSign = <p className='ElfFormParagraph' id={label}>{value}</p>;
             if(test) {
                 elfDebug.getAll(wrapper, 'p');
             }
@@ -38,9 +37,9 @@ export default class ElfTestCreator {
     clickedValueTest(label, value, test) {
         it('renders button click value ' + label, () => {
             const wrapper = mount(<DataMaven />);
-            const nineSign = <p className="ElfFormParagraph" id={label}>{value}</p>
+            const nineSign = <p className='ElfFormParagraph' id={label}>{value}</p>;
             wrapper.find('button#getUser').simulate('click');
-            if(test) {
+            if (test) {
                 elfDebug.getAll(wrapper, 'p');
             }
             expect(wrapper.containsMatchingElement(nineSign)).toEqual(true);

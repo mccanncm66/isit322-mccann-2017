@@ -12,7 +12,7 @@ describe('My GetUserInfo test' , function() {
 
     function getDefault(id, value) {
         const wrapper = mount(<DataMaven />);
-        const nineSign = <label className="ElfFormLabel" htmlFor={id}>{value}</label>;
+        const nineSign = <label className='ElfFormLabel' htmlFor={id}>{value}</label>;
         //elfDebug.getIndex(wrapper, 1, true);
         expect(wrapper.contains(nineSign)).toEqual(true);
     }

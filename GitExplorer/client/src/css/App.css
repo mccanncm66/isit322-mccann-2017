@@ -27,3 +27,16 @@
   font-weight:bolder;
   color: #2b669a;
 }
+
+#gistList {
+  margin:0 auto;
+  text-align: center;
+}
+
+.fancyDivider {
+  color:blue;
+  height:10px;
+  background-color: #2aabd2;
+  margin: 0 auto;
+  width:500px;
+}

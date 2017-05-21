@@ -1,6 +1,6 @@
 {
   "preset": "google",
-  "requireArrowFunctions": true,
+  //"requireArrowFunctions": true,
   "validateIndentation": 4,
   "excludeFiles": [
     "**/node_modules/**",

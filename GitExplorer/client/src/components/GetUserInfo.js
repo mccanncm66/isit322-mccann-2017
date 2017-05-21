@@ -37,9 +37,9 @@ class GetUserInfo extends Component {
                 return response.json();
             }).then(function (json) {
             //console.log('parsed json', json);
-                var body = JSON.parse(json.body);
-                logger.log(JSON.stringify(body));
-                that.setState({gitUser: body});
+            var body = JSON.parse(json.body);
+            logger.log(JSON.stringify(body));
+            that.setState({gitUser: body});
         }).catch(function (ex) {
             // DISPLAY WITH LOGGER
         });

@@ -41,7 +41,15 @@ class DataMaven extends Component {
                 description: 'description-qux',
                 html_url: 'foobar',
             },
-            gistList: [{html_url: 'foo'}]
+            gistList: [
+                {
+                    url: 'url-foo',
+                    html_url: 'foo',
+                    id: 'id-foo',
+                    description: 'Default Description',
+                    git_pull_url: 'git-pull-url-foo'
+                }
+            ]
         };
         //this.fetchGistLists = this.fetchGistLists.bind(this);
         //logger.log('GetUserInfo constructor called.');
@@ -55,19 +63,21 @@ class DataMaven extends Component {
     };
 
     fetchUser = (event) => {
-        //logger.log('--GetUserInfo Fetch User Being Called--');
+        logger.log('--GetUserInfo Fetch User Being Called--');
         event.preventDefault();
         const that = this;
         fetch('/gitapi/user')
             .then((response) => {
-                logger.log(JSON.stringify(response));
+            console.log(response);
+                //logger.log(JSON.stringify(response));
                 return response.json();
             }).then((json) => {
             //console.log('parsed json', json);
             const body = JSON.parse(json.body);
-            logger.log(JSON.stringify(body));
+            //logger.log(JSON.stringify(body));
             that.setState({gitUser: body});
         }).catch((ex) => {
+            logger.log('ERROR:', ex);
             // DISPLAY WITH LOGGER
         });
 

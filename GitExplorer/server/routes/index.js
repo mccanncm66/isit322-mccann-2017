@@ -4,8 +4,7 @@ const Logger = require('./ElfLogger');
 var logger = new Logger('routes-index');
 
 /* GET home page. */
-router.get('/', function(req, res, next) { 'use strict';
-  res.render('index', { title: 'server' });
+router.get('/', function(req, res, next) {res.render('index', {title: 'server'});
 });
 
 router.get('/foo', function(request, response, next) {
