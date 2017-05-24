@@ -1,45 +1,90 @@
 import React, {Component} from 'react';
 import ElfLogger from '../ElfLogger';
+import { Button } from 'react-bootstrap';
 const logger = new ElfLogger('gist-lister');
 
 class GistLister extends Component {
-    constructor(props) {
+    constructor(props){
         super(props);
         logger.log('Gist List Constructor');
+        this.state = {
+            index: 0
+        };
+        this.gistIterator = this.gistIterator.bind(this);
     }
 
-    render() {
+    gistIterator (event) {
+        logger.log(event.target.id);
+        if(event.target.id === 'nextGist') {
+            this.setState((prevState, props) => {
+                if (prevState.index < props.gistList.length - 1) {
+                    return (
+                        {index: prevState.index + 1}
+                    )
+                }
+            });
+        } else {
+            if (this.state.index !== 0) {
+                this.setState((prevState, props) =>{
+                    return {index: prevState.index - 1};
+                });
+            }
+        }
+    }
+
+    render(){
         return (
             <div id='gistList'>
                 <h2>Gist Lister</h2>
-                <h3>Gists Found: {this.props.gistList.length}</h3>
-                {this.props.gistList.map((field, index) => {
-                    return (
-                        <div key={field.id}>
+                <h3>Gists Index: {this.state.index} / {this.props.gistList.length - 1}</h3>
+
+                <Button bsStyle='primary' id='gistList' disabled={!this.props.gistCanIterate}  onClick={this.props.fetchGistLists}>Get Gist List</Button>
+                <Button bsStyle='success' id='prevGist' disabled={this.props.gistCanIterate} onClick={this.gistIterator}>Back</Button>
+                <Button bsStyle='danger' id='nextGist' disabled={this.props.gistCanIterate} onClick={this.gistIterator}>Next</Button>
+                {this.props.gistList.length > 1 &&
+                <div>
+                    <ul className='elf-ul'>
+                        <li>
                             <label className='ElfFormLabel'>Id: </label>
-                            <p>{field.id}</p>
-                            <label className='ElfFormLabel'>Url:</label>
-                            <p>{field.url}</p>
+                            <p>{this.props.gistList[this.state.index].id}</p>
+                        </li>
+                        <li>
+                            <label className='ElfFormLabel'>Url: </label>
+                            <p>{this.props.gistList[this.state.index].url}</p>
+
+                        </li>
+                        <li>
                             <label className='ElfFormLabel'>Html Url: </label>
-                            <p>{field.html_url}</p>
+                            <p><a target='new'
+                                  href={this.props.gistList[this.state.index].htmlUrl}>{this.props.gistList[this.state.index].htmlUrl}</a>
+                            </p>
+                        </li>
+                        <li>
                             <label className='ElfFormLabel'>Git Pull Url: </label>
-                            <p>{field.git_pull_url}</p>
+                            <p>{this.props.gistList[this.state.index].gitPullUrl}</p>
+                        </li>
+                        <li>
                             <label className='ElfFormLabel'>Description: </label>
-                            <p>{field.description}</p>
-                            <hr className='fancyDivider' />
-                        </div>
-                    );
-                })}
-                <button id='gistList' onClick={this.props.fetchGistLists}>Get Gist List</button> <br />
+                            <p>{this.props.gistList[this.state.index].description}</p>
+                        </li>
+                        <li>
+                            <label className='ElfFormLabel'>Owner Login: </label>
+                            <p>{this.props.gistList[this.state.index].ownerLogin}</p>
+                        </li>
+                    </ul>
+                    <img className='gistImg' src={this.props.gistList[this.state.index].avatarUrl} alt='owner'/>
+                </div>
+                }
+                <br />
             </div>
         );
     }
 }
 export default GistLister;
 /*
-<ul><li>{this.props.gistList[0]['html_url']}</li></ul>
-<ul></ul>
-<ul></ul>
-<ul></ul>
-<ul></ul>
-<button id='gistList' onClick={this.props.fetchGistLists}>Get Gist List</button> <br />*/
+ <ul><li>{this.props.gistList[0]['html_url']}</li></ul>
+ <ul></ul>
+ <ul></ul>
+ <ul></ul>
+ <ul></ul>
+ <button id='gistList' onClick={this.props.fetchGistLists}>Get Gist List</button> <br />*/

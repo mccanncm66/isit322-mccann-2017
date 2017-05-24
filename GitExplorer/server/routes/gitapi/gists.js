@@ -87,10 +87,12 @@ router.get('/get-gist-list', (request, response) => {
         const results = data.map((gist) => (
             {
                 url: gist.url,
-                html_url: gist.html_url,
+                htmlUrl: gist.html_url,
                 id: gist.id,
                 description: gist.description,
-                git_pull_url: gist.git_pull_url
+                gitPullUrl: gist.git_pull_url,
+                ownerLogin: gist.owner.login,
+                avatarUrl: gist.owner.avatar_url
 
             }
         ));

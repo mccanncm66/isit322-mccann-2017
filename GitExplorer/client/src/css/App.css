@@ -1,9 +1,21 @@
-.App {
-  text-align: center;
+.elf-ul li {
+  font-size:18px;
+}
+.gistImg {
+  width:200px;
+  height:200px;
+}
+.App-logo {
+/*  !*animation: App-logo-spin infinite 20s linear;*!*/
+height: 80px;
 }
 
-.App-logo {
-  /*animation: App-logo-spin infinite 20s linear;*/
+/*.App {
+  text-align: center;
+}*/
+
+/*.App-logo {
+  !*animation: App-logo-spin infinite 20s linear;*!
   height: 80px;
 }
 
@@ -21,9 +33,9 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+}*/
 
-.ElfFormLabel {
+/*.ElfFormLabel {
   font-weight:bolder;
   color: #2b669a;
 }
@@ -40,3 +52,8 @@
   margin: 0 auto;
   width:500px;
 }
+
+.gistImg {
+  width:200px;
+  height:200px;
+}*/

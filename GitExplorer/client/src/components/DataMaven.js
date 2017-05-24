@@ -41,13 +41,16 @@ class DataMaven extends Component {
                 description: 'description-qux',
                 html_url: 'foobar',
             },
+            gistCanIterate: true,
             gistList: [
                 {
-                    url: 'url-foo',
-                    html_url: 'foo',
-                    id: 'id-foo',
-                    description: 'Default Description',
-                    git_pull_url: 'git-pull-url-foo'
+                    url: 'default',
+                    htmlUrl: 'https://gist.github.com/a023c7db77926ff58d35087821e12020',
+                    id: 'a023c7db77926ff58d35087821e12020',
+                    gitPullUrl: 'https://gist.github.com/a023c7db77926ff58d35087821e12020.git',
+                    description: 'Simple React Component'                        ,
+                    ownerLogin: 'login default',
+                    avatarUrl: 'avatart default'
                 }
             ]
         };
@@ -115,7 +118,10 @@ class DataMaven extends Component {
             //console.log('parsed json', json);
             const body = json.result;
             //logger.log(JSON.stringify(body));
-            that.setState({gistList: body});
+            that.setState({
+                gistList: body,
+                gistCanIterate: false
+            });
         }).catch((ex) => {
             logger.log('ERROR:', ex);
             // DISPLAY WITH LOGGER
@@ -148,7 +154,7 @@ class DataMaven extends Component {
         //logger.log(JSON.stringify(this.state.gitUser));
         return (
             <Router history="">
-                <div>
+                <div className="container">
                     <ElfHeader/>
                     <Route exact path='/'
                            render={(props) => (
@@ -170,6 +176,7 @@ class DataMaven extends Component {
                         <GistLister {...props}
                                      gistList={this.state.gistList}
                                      fetchGistLists={this.fetchGistLists}
+                                     gistCanIterate={this.state.gistCanIterate}
                         />
                     )}/>
                     <Route path='/charlie-jso' render={(props) => (
