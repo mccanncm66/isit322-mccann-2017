@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
+import { Button } from 'react-bootstrap';
 //import mock from './mocks';
 //var fetch = require('../mocks').fetch;
 
@@ -43,13 +44,13 @@ class GetFoo extends Component {
     render() {
         return (
             <div className="App">
-                <p className="App-intro">
+                <label className="pup-label">
                     state.foo: {this.state.foo}
-                </p>
-                <p className="App-intro">
+                </label><br />
+                <label className="pup-label">
                     state.file: {this.state.file}
-                </p>
-                <button className="getFoo" onClick={this.getFoo}>Get Foo</button> <br />
+                </label> <br />
+                <Button className="getFoo" onClick={this.getFoo}>Get Foo</Button> <br />
             </div>
         );
     }
