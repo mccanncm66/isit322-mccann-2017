@@ -4,12 +4,9 @@
 
 import React, {Component} from 'react';
 import logo from '../images/Inkscape-small.svg';
-import {
-    Link
-} from 'react-router-dom';
 import '../css/App.css';
 import '../css/menu.css';
-import { Jumbotron, MenuItem, Nav, Navbar, NavDropdown, NavItem   } from 'react-bootstrap';
+import { Jumbotron, Nav, Navbar, NavItem   } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 class ElfHeader extends Component {
