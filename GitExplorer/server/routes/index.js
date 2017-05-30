@@ -5,11 +5,15 @@ var logger = new Logger('routes-index');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+
    //use this for dev
    //res.render('index', {title: 'server'});
 
     //use this for build
     res.sendFile('index.html');
+
+
+
 });
 
 router.get('/foo', function(request, response, next) {

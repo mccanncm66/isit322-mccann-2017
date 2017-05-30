@@ -3,6 +3,7 @@ import '../css/App.css';
 import 'whatwg-fetch';
 import ElfElements from './ElfElements';
 import Debug from '../ElfLogger'
+import {Button} from 'react-bootstrap';
 const logger = new Debug(false);
 
 class ShowUserInfo extends Component {
@@ -20,8 +21,9 @@ class ShowUserInfo extends Component {
     getForm = (field, index) => {
         logger.log(JSON.stringify(field));
         return (
-            <div className="ElfFormRow" key={field.id}>
-                <label className="ElfFormLabel" htmlFor={field.id}>{field.label}:</label>
+            <div className="form-group" key={field.id}>
+                <label className="form-group-lg" for={this.props.gitUser[field.id]}
+                       htmlFor={field.id}>{field.label}:</label>
                 <ElfElements {...field}
                              value={this.props.gitUser[field.id] ? this.props.gitUser[field.id] : "N/A" }
                              onChange={this.props.onChange}
@@ -33,15 +35,19 @@ class ShowUserInfo extends Component {
 
     render() {
         return (
-                <form className="Form">
-                    <button id="getUser" onClick={this.props.onChange}>Get Git User</button>
-                    {
-                    this.props.fields.map((field, index) => {
-                        return this.getForm(field, index)
-                    })
-                }
+            <div>
+                <Button id="getUser" bsStyle="primary" onClick={this.props.onChange}>Get Git User</Button>
+                <div className="scrollbox">
+                    <form>
+                        {
+                            this.props.fields.map((field, index) => {
+                                return this.getForm(field, index)
+                            })
+                        }
 
-                </form>
+                    </form>
+                </div>
+            </div>
         );
     }
 }
