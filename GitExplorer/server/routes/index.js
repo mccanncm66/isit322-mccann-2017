@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const Logger = require('./ElfLogger');
 var logger = new Logger('routes-index');
+const requester = require('request');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,6 +17,10 @@ router.get('/foo', function(request, response, next) {
     const message = {'result': 'success', 'foo': 'barseer', 'file': 'api.js'};
     logger.log('Foo called on server with message:', message);
     response.send(message);
+});
+
+router.get('/user/get-user', function(request, response, next) {
+    requester('http://localhost:30026/get-user').pipe(response);
 });
 
 module.exports = router;

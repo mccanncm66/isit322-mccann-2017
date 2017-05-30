@@ -13,7 +13,7 @@ const GitHub = require('github-api');
     console.log('Foo called on server with message:', message);
     response.send(message);
 });*/
-
+/*
 router.get('/', function(req, res, next) {
     const options = {
         url: 'https://api.github.com/users/mccanncm66',
@@ -52,6 +52,6 @@ router.get('/charlie-jso', function(req, res, next) {
         res.send({error: error, response: response, body: body});
     });
 
-});
+});*/
 
 module.exports = router;

@@ -69,7 +69,7 @@ class DataMaven extends Component {
         logger.log('--GetUserInfo Fetch User Being Called--');
         event.preventDefault();
         const that = this;
-        fetch('/gitapi/user')
+        fetch('/user/get-user')
             .then((response) => {
             console.log(response);
                 //logger.log(JSON.stringify(response));
