@@ -4,12 +4,9 @@
 
 import React, {Component} from 'react';
 import logo from '../images/Inkscape-small.svg';
-import {
-    Link
-} from 'react-router-dom';
 import '../css/App.css';
 import '../css/menu.css';
-import { Jumbotron, MenuItem, Nav, Navbar, NavDropdown, NavItem   } from 'react-bootstrap';
+import { Jumbotron, Nav, Navbar, NavItem   } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 class ElfHeader extends Component {
@@ -26,20 +23,13 @@ class ElfHeader extends Component {
                 <Navbar.Collapse>
                     <Nav>
                         <LinkContainer to='/'><NavItem>Show Git User</NavItem></LinkContainer>
+                        <LinkContainer to='/show-new-gist'><NavItem>Create Gist</NavItem></LinkContainer>
                         <LinkContainer to='/get-gist-list'><NavItem>Get Gist List</NavItem></LinkContainer>
                         <LinkContainer to='/get-numbers'><NavItem>Numbers</NavItem></LinkContainer>
-                        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                            <MenuItem eventKey={3.1}>Action</MenuItem>
-                            <MenuItem eventKey={3.2}>Another action</MenuItem>
-                            <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                            <MenuItem divider />
-                            <MenuItem eventKey={3.3}>Separated link</MenuItem>
-                        </NavDropdown>
+                        <LinkContainer to='/get-foo'><NavItem>BarFoo</NavItem></LinkContainer>
+                        <LinkContainer to='/charlie-jso'><NavItem>Show JsObjects</NavItem></LinkContainer>
                     </Nav>
-                    <Nav pullRight>
-                        <NavItem eventKey={1} href="#">Link Right</NavItem>
-                        <NavItem eventKey={2} href="#">Link Right</NavItem>
-                    </Nav>
+
                 </Navbar.Collapse>
             </Navbar>
         );
@@ -55,16 +45,6 @@ class ElfHeader extends Component {
 
                         </div>
                         </Jumbotron>
-                    </div>
-                    <div id='menu-container'>
-                        <ul className="elfMenu">
-                            <li><Link to='/'>Caleb's Git Info</Link></li>
-                            <li><Link to='/get-foo'>BarFoo</Link></li>
-                            <li><Link to='/get-numbers'>Numbers</Link></li>
-                            <li><Link to='/show-new-gist'>Create Gist</Link></li>
-                            <li><Link to='/charlie-jso'>Show JsObjects</Link></li>
-                            <li><Link to='/get-gist-list'>Get Gist List</Link></li>
-                        </ul>
                     </div>
                 </div>
         );

@@ -9,6 +9,25 @@
 /*  !*animation: App-logo-spin infinite 20s linear;*!*/
 height: 80px;
 }
+.numberButton {
+  margin-left:15px;
+  width:150px;
+}
+
+.pup-label-number {
+  width:100px;
+  margin-bottom:15px;
+}
+.pup-label-foo {
+
+}
+
+.scrollbox {
+  width: 100%;
+  height:500px;
+  padding:7px;
+  overflow: auto;
+}
 
 /*.App {
   text-align: center;
