@@ -92,7 +92,8 @@ router.get('/get-gist-list', (request, response) => {
                 description: gist.description,
                 gitPullUrl: gist.git_pull_url,
                 ownerLogin: gist.owner.login,
-                avatarUrl: gist.owner.avatar_url
+                avatarUrl: gist.owner.avatar_url,
+                files: Object.keys(gist.files)
 
             }
         ));
@@ -103,6 +104,23 @@ router.get('/get-gist-list', (request, response) => {
     }).catch(function(err) {
         logger.log('USER Promise Rejected', err);
         response.status(500).send({'result': err});
+    });
+});
+
+router.get('/delete', (request, response, next) => {
+    logger.log('delete called', request.query);
+    const gistId = request.query.gistId;
+    let gitHub = getGitHub();
+    const gist = gitHub.getGist(gistId);
+    gist.delete().then(function({data}) {
+        response.status(200).send({
+            'result': 'success',
+            'gistId': gistId,
+            'data': data
+        });
+    }).catch(function(err) {
+        "use strict";
+
     });
 });
 

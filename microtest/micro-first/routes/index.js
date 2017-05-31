@@ -1,20 +1,23 @@
-/**
- * Created by bcuser on 4/13/17.
- */
-//import GitHub from 'github-api';
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 const request = require('request');
 const GitHub = require('github-api');
 
 /* GET home page. */
-/*router.get('/foo', function(request, response, next) {
-    const message = {'result': 'success', 'foo': 'bar', 'file': 'api.js'};
-    console.log('Foo called on server with message:', message);
-    response.send(message);
-});*/
+router.get('/', function(req, res, next) { 'use strict';
+  res.render('index', { title: 'micro-first' });
+});
 
-router.get('/', function(req, res, next) {
+router.get('/you-rang', function (request, response) {
+    response.status(200).send({
+        result: 'success',
+        message: 'i am micro-first, up and running'
+    });
+});
+
+
+
+router.get('/get-user', function(req, res, next) {
     const options = {
         url: 'https://api.github.com/users/mccanncm66',
         headers: {

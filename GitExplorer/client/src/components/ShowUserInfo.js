@@ -22,7 +22,7 @@ class ShowUserInfo extends Component {
         logger.log(JSON.stringify(field));
         return (
             <div className="form-group" key={field.id}>
-                <label className="form-group-lg" for={this.props.gitUser[field.id]}
+                <label className="form-group-lg"
                        htmlFor={field.id}>{field.label}:</label>
                 <ElfElements {...field}
                              value={this.props.gitUser[field.id] ? this.props.gitUser[field.id] : "N/A" }
@@ -31,7 +31,6 @@ class ShowUserInfo extends Component {
             </div>
         )
     };
-
 
     render() {
         return (
