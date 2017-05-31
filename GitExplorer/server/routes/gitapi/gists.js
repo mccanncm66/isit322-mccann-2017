@@ -112,14 +112,15 @@ router.get('/delete', (request, response, next) => {
     const gistId = request.query.gistId;
     let gitHub = getGitHub();
     const gist = gitHub.getGist(gistId);
-    gist.delete().then(function({data}) {
+    gist.delete().then(({data}) => {
         response.status(200).send({
             'result': 'success',
             'gistId': gistId,
             'data': data
         });
-    }).catch(function(err) {
-
+    }).catch((err) => {
+        logger.log('Delete promise rejected', err);
+        response.status(500).send({'result': err});
     });
 });
 

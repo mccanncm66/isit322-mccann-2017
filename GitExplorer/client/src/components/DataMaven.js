@@ -65,16 +65,17 @@ class DataMaven extends Component {
         }
     };
 
-    gistDelete(param, callback) {
+    gistDelete = (param, callback) => {
         var url = '/gitapi/gists/delete?gistId=' + param;
 
         return fetch(url)
             .then((res) => res.json())
             .then((json) => {
                 console.log(json);
+                callback();
             })
             .catch((ex) => console.log('Fetch Exception', ex));
-    }
+    };
 
     fetchUser = (event) => {
         logger.log('--GetUserInfo Fetch User Being Called--');
@@ -119,7 +120,9 @@ class DataMaven extends Component {
 
     fetchGistLists = (event) => {
         logger.log('--DataMaven Fetch Gist Lists Being Called--');
-        event.preventDefault();
+        if(event) {
+            event.preventDefault();
+        }
         const that = this;
         fetch('/gitapi/gists/get-gist-list')
             .then((response) => {
@@ -188,7 +191,7 @@ class DataMaven extends Component {
                                      gistList={this.state.gistList}
                                      fetchGistLists={this.fetchGistLists}
                                      gistCanIterate={this.state.gistCanIterate}
-                                     deleteGist={this.gistDelete}
+                                     gistDelete={this.gistDelete}
                         />
                     )}/>
                     <Route path='/charlie-jso' render={(props) => (
