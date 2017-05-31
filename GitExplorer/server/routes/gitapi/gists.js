@@ -119,7 +119,6 @@ router.get('/delete', (request, response, next) => {
             'data': data
         });
     }).catch(function(err) {
-        "use strict";
 
     });
 });
