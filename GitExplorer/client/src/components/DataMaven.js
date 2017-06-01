@@ -67,7 +67,7 @@ class DataMaven extends Component {
 
     gistDelete = (param, callback) => {
         var url = '/gitapi/gists/delete?gistId=' + param;
-
+        //var url = '/gists/delete';
         return fetch(url)
             .then((res) => res.json())
             .then((json) => {
@@ -102,7 +102,7 @@ class DataMaven extends Component {
         logger.log('--DataMaven Fetch Gist Being Called--');
         event.preventDefault();
         const that = this;
-        fetch('/gitapi/gists/gist-test')
+        fetch('/gists/gist-test')
             .then((response) => {
                 //logger.log(JSON.stringify(response));
                 return response.json();

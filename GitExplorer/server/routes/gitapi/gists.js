@@ -49,64 +49,6 @@ let getGitHub = function() {
     return gh;
 };
 
-router.get('/gist-test', function(request, response) {
-
-    //const gh = new GitHub();
-    const  gh = getGitHub();
-    let gist = gh.getGist(); // not a gist yet
-    gist.create({
-        public: true,
-        description: 'My first gist',
-        files: {
-            'file1.txt': {
-                content: 'Aren\'t gists great!'
-            }
-        }
-    }).then(function({data}) {
-        // Promises!
-        let createdGist = data;
-        return gist.read();
-    }).then(function({data}) {
-        let retrievedGist = data;
-        // do interesting things
-        logger.log('RETRIEVED', retrievedGist);
-        response.status(200).send({'result': retrievedGist});
-    }).catch(function(err) {
-        'use strict';
-        response.status(500).send({'result': err});
-    });
-
-});
-
-/*router.get('/get-gist-list', (request, response) => {
-    let gh = getGitHub();
-    const me = gh.getUser();
-    me.listGists(
-    ).then(function({data}) {
-        logger.log('USER PROMISE', data);
-        const results = data.map((gist) => (
-            {
-                url: gist.url,
-                htmlUrl: gist.html_url,
-                id: gist.id,
-                description: gist.description,
-                gitPullUrl: gist.git_pull_url,
-                ownerLogin: gist.owner.login,
-                avatarUrl: gist.owner.avatar_url,
-                files: Object.keys(gist.files)
-
-            }
-        ));
-        response.status(200).send({
-            'count': results.length,
-            'result': results
-        });
-    }).catch(function(err) {
-        logger.log('USER Promise Rejected', err);
-        response.status(500).send({'result': err});
-    });
-});*/
-
 router.get('/delete', (request, response, next) => {
     logger.log('delete called', request.query);
     const gistId = request.query.gistId;

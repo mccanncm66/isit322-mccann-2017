@@ -11,9 +11,9 @@
     "start": "concurrently 'npm run server' 'npm run client' 'npm run micros'",
     "server": "nodemon server/bin/www",
     "client": "nodemon start-client.js",
-    "micros": "concurrently 'npm run micro-first' 'npm run micro-second'",
-    "micro-first": "nodemon ../microtest/micro-first/bin/www",
-    "micro-second": "nodemon ../microtest/micro-second/bin/www",
+    "micros": "concurrently 'npm run user-service' 'npm run gist-service'",
+    "user-service": "babel-node ../Micros/user-service/bin/www",
+    "gist-service": "babel-node ../Micros/gist-service/bin/www",
     "lint": "eslint ."
   },
   "devDependencies": {

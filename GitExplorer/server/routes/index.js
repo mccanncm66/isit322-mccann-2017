@@ -27,7 +27,12 @@ router.get('/gists/get-gist-list', function(request, response, next) {
     requester('http://localhost:30027/get-gist-list').pipe(response);
 });
 
+router.get('/gists/gist-test', function(request, response, next) {
+    requester('http://localhost:30027/gist-test').pipe(response);
+});
+
 router.get('/gists/delete', function(request, response, next) {
     requester('http://localhost:30027/delete').pipe(response);
 });
+
 module.exports = router;
