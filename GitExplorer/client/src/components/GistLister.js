@@ -46,10 +46,10 @@ class GistLister extends Component {
                 <h2>Gist Lister</h2>
                 <h3>Gists Index: {this.state.index + 1} / {this.props.gistList.length}</h3>
 
-                <Button bsStyle='primary' id='gistList' disabled={!this.props.gistCanIterate}  onClick={this.props.fetchGistLists}>Get Gist List</Button>
-                <Button bsStyle='success' id='prevGist' disabled={this.props.gistCanIterate} onClick={this.gistIterator}>Back</Button>
-                <Button bsStyle='danger' id='nextGist' disabled={this.props.gistCanIterate} onClick={this.gistIterator}>Next</Button>
-                <Button bsStyle='primary' id='deleteGist' disabled={this.props.gistCanIterate}  onClick={this.gistDelete}>Delete</Button>
+                <Button bsStyle='info' id='gistList' disabled={!this.props.gistCanIterate}  onClick={this.props.fetchGistLists}>Get Gist List</Button>
+                <Button className="glyphicon glyphicon-chevron-left" bsStyle='warning' id='prevGist' disabled={this.props.gistCanIterate} onClick={this.gistIterator} />
+                <Button className="glyphicon glyphicon-chevron-right" bsStyle='primary' id='nextGist' disabled={this.props.gistCanIterate} onClick={this.gistIterator} />
+                <Button className="glyphicon glyphicon-trash" bsStyle='danger' id='deleteGist' disabled={this.props.gistCanIterate}  onClick={this.gistDelete} />
                 {this.props.gistList.length > 1 &&
                 <div>
                     <ul className='elf-ul'>

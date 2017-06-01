@@ -50,7 +50,7 @@ class GetFoo extends Component {
                 <label className="pup-label">
                     state.file: {this.state.file}
                 </label> <br />
-                <Button className="getFoo" onClick={this.getFoo}>Get Foo</Button> <br />
+                <Button className="getFoo" bsStyle="danger" onClick={this.getFoo}>Get Foo</Button> <br />
             </div>
         );
     }

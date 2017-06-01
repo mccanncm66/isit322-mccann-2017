@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
+import { Button } from 'react-bootstrap';
 import Logger from '../ElfLogger';
 const logger = new Logger('show-new-gist');
 //import mock from './mocks';
@@ -36,7 +37,7 @@ export class ShowJso extends Component {
                 <p className="App-intro">
                     Description: {this.props.gitJso.description}
                 </p>
-                <button id="getGist" onClick={this.props.fetchJSO}>Get JsObjects</button> <br />
+                <Button id="getGist" bsStyle="danger" onClick={this.props.fetchJSO}>Get JsObjects</Button> <br />
             </div>
         );
     }

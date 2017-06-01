@@ -3,6 +3,7 @@ import '../css/App.css';
 import 'whatwg-fetch';
 import Logger from '../ElfLogger';
 const logger = new Logger('show-new-gist');
+import { Button } from 'react-bootstrap';
 //import mock from './mocks';
 //var fetch = require('../mocks').fetch;
 
@@ -36,7 +37,7 @@ export class ShowNewGist extends Component {
                 <p className="App-intro">
                     Description: {this.props.gitGist.description}
                 </p>
-                <button id="getGist" onClick={this.props.fetchGist}>Create Gist</button> <br />
+                <Button id="getGist" bsStyle="danger" onClick={this.props.fetchGist}>Create Gist</Button> <br />
             </div>
         );
     }
