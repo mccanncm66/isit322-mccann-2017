@@ -1,9 +1,9 @@
-/**
+/*
+*
  * Created by bcuser on 5/16/17.
- */
-/**
+/!**
  * Created by bcuser on 4/13/17.
- */
+ *!/
 //import GitHub from 'github-api';
 const express = require('express');
 const router = express.Router();
@@ -49,21 +49,4 @@ let getGitHub = function() {
     return gh;
 };
 
-router.get('/delete', (request, response, next) => {
-    logger.log('delete called', request.query);
-    const gistId = request.query.gistId;
-    let gitHub = getGitHub();
-    const gist = gitHub.getGist(gistId);
-    gist.delete().then(({data}) => {
-        response.status(200).send({
-            'result': 'success',
-            'gistId': gistId,
-            'data': data
-        });
-    }).catch((err) => {
-        logger.log('Delete promise rejected', err);
-        response.status(500).send({'result': err});
-    });
-});
-
-module.exports = router;
+module.exports = router;*/

@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const Logger = require('./ElfLogger');
-var logger = new Logger('routes-index');
+const logger = new Logger('routes-index');
 const requester = require('request');
 
 /* GET home page. */
@@ -23,6 +23,10 @@ router.get('/user/get-user', function(request, response, next) {
     requester('http://localhost:30026/get-user').pipe(response);
 });
 
+router.get('/user/charlie-jso', function(request, response, next) {
+    requester('http://localhost:30026/charlie-jso').pipe(response);
+});
+
 router.get('/gists/get-gist-list', function(request, response, next) {
     requester('http://localhost:30027/get-gist-list').pipe(response);
 });
@@ -32,7 +36,9 @@ router.get('/gists/gist-test', function(request, response, next) {
 });
 
 router.get('/gists/delete', function(request, response, next) {
-    requester('http://localhost:30027/delete').pipe(response);
+    const param = request.query.gistId;
+    const url = '/delete?gistId=' + param;
+    requester('http://localhost:30027' + url).pipe(response);
 });
 
 module.exports = router;

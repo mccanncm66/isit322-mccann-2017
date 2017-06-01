@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "REACT_APP_ELF_LOGGER='gist-lister' nodemon jasmine-runner.js",
+    "test": "REACT_APP_ELF_LOGGER='routes-index' nodemon jasmine-runner.js",
     "test-karma": "karma start",
     "start": "nodemon ./bin/www"
   },

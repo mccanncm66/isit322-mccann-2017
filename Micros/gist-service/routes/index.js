@@ -114,7 +114,7 @@ router.get('/get-gist-list', (request, response) => {
 
 router.get('/delete', (request, response, next) => {
     //logger.log('delete called', request.query);
-    const gistId = request.query.id;
+    const gistId = request.query.gistId;
     console.log('delete called from gist-service');
     console.log(gistId);
     let gitHub = getGitHub();
