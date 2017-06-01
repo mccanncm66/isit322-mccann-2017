@@ -11,9 +11,12 @@
     "start": "concurrently 'npm run server' 'npm run client' 'npm run micros'",
     "server": "nodemon server/bin/www",
     "client": "nodemon start-client.js",
-    "micros": "concurrently 'npm run user-service' 'npm run gist-service'",
+    "micros": "concurrently 'npm run user-service' 'npm run gist-service' 'npm run markdown-service' 'npm run qux-service' 'npm run git-socket-service'",
     "user-service": "babel-node ../Micros/user-service/bin/www",
     "gist-service": "babel-node ../Micros/gist-service/bin/www",
+    "markdown-service": "babel-node ../Micros/markdown-service/bin/www",
+    "qux-service": "babel-node ../Micros/qux-service/bin/www",
+    "git-socket-service": "babel-node ../Micros/git-socket-service/bin/www",
     "lint": "eslint ."
   },
   "devDependencies": {
