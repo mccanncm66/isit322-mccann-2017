@@ -169,7 +169,7 @@ class DataMaven extends Component {
         return (
             <Router history="">
                 <div className="container">
-                    <ElfHeader/>
+                    <ElfHeader />
                     <Route exact path='/'
                            render={(props) => (
                            <GetUserInfo {...props}
