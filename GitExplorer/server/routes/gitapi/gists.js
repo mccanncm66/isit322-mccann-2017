@@ -78,7 +78,7 @@ router.get('/gist-test', function(request, response) {
 
 });
 
-router.get('/get-gist-list', (request, response) => {
+/*router.get('/get-gist-list', (request, response) => {
     let gh = getGitHub();
     const me = gh.getUser();
     me.listGists(
@@ -105,7 +105,7 @@ router.get('/get-gist-list', (request, response) => {
         logger.log('USER Promise Rejected', err);
         response.status(500).send({'result': err});
     });
-});
+});*/
 
 router.get('/delete', (request, response, next) => {
     logger.log('delete called', request.query);

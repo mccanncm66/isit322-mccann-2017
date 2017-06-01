@@ -27,25 +27,6 @@ class GetUserInfo extends Component {
         }
     };
 
-    fetchUser = (event) => {
-        logger.log('--GetUserInfo Fetch User Being Called--');
-        event.preventDefault();
-        const that = this;
-        fetch('/api/user')
-            .then(function (response) {
-                logger.log(JSON.stringify(response));
-                return response.json();
-            }).then(function (json) {
-            //console.log('parsed json', json);
-            var body = JSON.parse(json.body);
-            logger.log(JSON.stringify(body));
-            that.setState({gitUser: body});
-        }).catch(function (ex) {
-            // DISPLAY WITH LOGGER
-        });
-
-    };
-
     render() {
         logger.log('--GetUserInfo Render Being Called--');
         logger.log(JSON.stringify(this.state.gitUser));

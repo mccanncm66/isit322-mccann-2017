@@ -124,7 +124,7 @@ class DataMaven extends Component {
             event.preventDefault();
         }
         const that = this;
-        fetch('/gitapi/gists/get-gist-list')
+        fetch('/gists/get-gist-list')
             .then((response) => {
                 //logger.log(JSON.stringify(response));
                 return response.json();
