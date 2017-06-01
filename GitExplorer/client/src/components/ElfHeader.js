@@ -16,7 +16,7 @@ class ElfHeader extends Component {
             <Navbar inverse collapseOnSelect>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <LinkContainer to='/'><NavItem>Gist Explorer</NavItem></LinkContainer>
+                        <LinkContainer to='/'><a href='/'>Gist Explorer</a></LinkContainer>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
