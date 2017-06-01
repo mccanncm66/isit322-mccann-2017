@@ -6,4 +6,11 @@ router.get('/', function(req, res, next) { 'use strict';
   res.render('index', { title: 'qux-service' });
 });
 
+router.get('/you-rang', function (request, response) {
+    response.status(200).send({
+        result: 'success',
+        message: 'i am qux, up and running'
+    });
+});
+
 module.exports = router;

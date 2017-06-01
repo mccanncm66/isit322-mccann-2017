@@ -5,13 +5,13 @@ const GitHub = require('github-api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) { 'use strict';
-  res.render('index', { title: 'micro-first' });
+  res.render('index', { title: 'user-service' });
 });
 
 router.get('/you-rang', function (request, response) {
     response.status(200).send({
         result: 'success',
-        message: 'i am micro-first, up and running'
+        message: 'i am user-service, up and running'
     });
 });
 

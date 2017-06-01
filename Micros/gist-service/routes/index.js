@@ -8,13 +8,13 @@ const GitHub = require('github-api');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', {title: 'micro-second'});
+    res.render('index', {title: 'gist-service'});
 });
 
 router.get('/you-rang', function (request, response) {
     response.status(200).send({
         result: 'success',
-        message: 'i am micro-second, up and running'
+        message: 'i am gist-service, up and running'
     });
 });
 
