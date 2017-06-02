@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.css';
-import {connect} from 'react-redux';
-
 let AppConnect = ({statement, kind, verifyStatement, denyEverything, noComment}) => {
 
     return (
@@ -21,26 +19,4 @@ let AppConnect = ({statement, kind, verifyStatement, denyEverything, noComment})
       </div>
     );
 };
-
-const mapStateToProps = (state) => {
-    return {
-        statement: state.statement,
-        kind: state.kind
-    }
-};
-const mapDispatchToProps = (dispatch) => {
-    return {
-        verifyStatement: () => {
-            dispatch({ type: 'VERIFY' });
-        },
-        denyEverything: () => {
-            dispatch({ type: 'DENY' });
-        },
-        noComment: () => {
-            dispatch({ type: 'NO COMMENT' });
-        }
-    }
-};
-
-AppConnect = connect(mapStateToProps, mapDispatchToProps)(AppConnect);
 export default AppConnect;

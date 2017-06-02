@@ -6,6 +6,8 @@ import AppNoProps from './AppNoProps';
 import DispatchConnect from './DispatchConnect';
 import AppConnect from './AppConnect';
 import registerServiceWorker from './registerServiceWorker';
+import Connector from './Connector';
+
 import './index.css';
 import spokesman from './spokesman';
 import {Provider} from 'react-redux';
@@ -26,6 +28,7 @@ ReactDOM.render(
                 <hr />
                 <hr />
                 <AppConnect/>
+                <Connector/>
                 <hr />
                 <hr />
                 <FakeRedux />
