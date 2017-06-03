@@ -32,7 +32,11 @@ router.get('/gists/get-gist-list', function(request, response, next) {
 });
 
 router.get('/gists/gist-test', function(request, response, next) {
-    requester('http://localhost:30027/gist-test').pipe(response);
+    let fileName = request.query.name;
+    let description = request.query.description;
+    console.log('from index');
+    console.log(fileName);
+    requester('http://localhost:30027/gist-test?name=' + fileName + '&description=' + description).pipe(response);
 });
 
 router.get('/gists/delete', function(request, response, next) {

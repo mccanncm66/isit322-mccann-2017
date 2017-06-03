@@ -56,9 +56,9 @@
     "whatwg-fetch": "2.0.2"
   },
   "scripts": {
-    "start": "REACT_APP_ELF_LOGGER='gist-lister' node scripts/start.js",
+    "start": "REACT_APP_ELF_LOGGER='' node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "REACT_APP_ELF_LOGGER='gist-lister' node scripts/test.js --env=jsdom"
+    "test": "REACT_APP_ELF_LOGGER='' node scripts/test.js --env=jsdom"
   },
   "jest": {
     "collectCoverageFrom": [

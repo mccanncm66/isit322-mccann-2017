@@ -55,16 +55,20 @@ let getGitHub = function () {
 };
 
 router.get('/gist-test', function (request, response) {
-
+    const filename = request.query.name + '.txt';
+    const description = request.query.description;
+    console.log('description=' + description);
+    console.log(filename);
     //const gh = new GitHub();
     const gh = getGitHub();
     let gist = gh.getGist(); // not a gist yet
     gist.create({
         public: true,
-        description: 'My first gist',
+        description: description,
         files: {
             'file1.txt': {
-                content: 'Aren\'t gists great!'
+                filename: filename,
+                content: 'Aren\'t gists great Testing!'
             }
         }
     }).then(function ({data}) {

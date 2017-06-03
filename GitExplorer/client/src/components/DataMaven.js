@@ -31,8 +31,9 @@ class DataMaven extends Component {
                 id: 'id-qux',
                 url: '',
                 html_url: '',
-                description: 'description-qux',
-                created_at: ''
+                description: 'enter description',
+                created_at: '',
+                filename: ''
             },
             gitJso: {
                 full_name: 'full_name-qux',
@@ -54,9 +55,6 @@ class DataMaven extends Component {
                 }
             ]
         };
-        //this.fetchGistLists = this.fetchGistLists.bind(this);
-        //logger.log('GetUserInfo constructor called.');
-        //logger.log(JSON.stringify(this.state.gitUser));
     };
 
     debug = (message) => {
@@ -66,7 +64,6 @@ class DataMaven extends Component {
     };
 
     gistDelete = (param, callback) => {
-        //var url = '/gitapi/gists/delete?gistId=' + param;
         const url = '/gists/delete?gistId=' + param;
         return fetch(url)
             .then((res) => res.json())
@@ -84,61 +81,47 @@ class DataMaven extends Component {
         fetch('/user/get-user')
             .then((response) => {
             console.log(response);
-                //logger.log(JSON.stringify(response));
                 return response.json();
             }).then((json) => {
-            //console.log('parsed json', json);
             const body = JSON.parse(json.body);
-            //logger.log(JSON.stringify(body));
             that.setState({gitUser: body});
         }).catch((ex) => {
             logger.log('ERROR:', ex);
-            // DISPLAY WITH LOGGER
         });
 
     };
 
-    fetchGist = (event) => {
-        logger.log('--DataMaven Fetch Gist Being Called--');
-        event.preventDefault();
+    fetchGist = (fileName, description) => {
         const that = this;
-        fetch('/gists/gist-test')
+        const url = '/gists/gist-test?name=' + fileName + '&description=' + description;
+        fetch(url)
             .then((response) => {
-                //logger.log(JSON.stringify(response));
                 return response.json();
             }).then((json) => {
-            //console.log('parsed json', json);
             const body = json.result;
-            //logger.log(JSON.stringify(body));
             that.setState({gitGist: body});
         }).catch((ex) => {
             logger.log('ERROR:', ex);
-            // DISPLAY WITH LOGGER
         });
 
     };
 
     fetchGistLists = (event) => {
-        logger.log('--DataMaven Fetch Gist Lists Being Called--');
         if(event) {
             event.preventDefault();
         }
         const that = this;
         fetch('/gists/get-gist-list')
             .then((response) => {
-                //logger.log(JSON.stringify(response));
                 return response.json();
             }).then((json) => {
-            //console.log('parsed json', json);
             const body = json.result;
-            //logger.log(JSON.stringify(body));
             that.setState({
                 gistList: body,
                 gistCanIterate: false
             });
         }).catch((ex) => {
             logger.log('ERROR:', ex);
-            // DISPLAY WITH LOGGER
         });
 
     };
@@ -149,23 +132,17 @@ class DataMaven extends Component {
         const that = this;
         fetch('/user/charlie-jso')
             .then((response) => {
-                //logger.log(JSON.stringify(response));
                 return response.json();
             }).then((json) => {
-            //console.log('parsed json', json);
             const body = JSON.parse(json.body);
-            //logger.log(JSON.stringify(body));
             that.setState({gitJso: body});
         }).catch((ex) => {
             logger.log('ERROR:', ex);
-            // DISPLAY WITH LOGGER
         });
 
     };
 
     render = () => {
-        //logger.log('--DataMaven Render Being Called--');
-        //logger.log(JSON.stringify(this.state.gitUser));
         return (
             <Router history="">
                 <div className="container">
