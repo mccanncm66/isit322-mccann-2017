@@ -7,7 +7,7 @@ let AppConnect = ({statement, kind, verifyStatement, denyEverything, noComment})
         <div className="App-intro">
           <h2>Welcome to React</h2>
         </div>
-          <h1>Political Science AppConnect Redux</h1>
+          <h1>Political Science AppConnect Reduxx</h1>
 
           <p>This component does not use redux. It uses something redux-like.</p>
           <p>{statement}</p>

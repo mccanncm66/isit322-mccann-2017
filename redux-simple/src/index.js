@@ -4,7 +4,7 @@ import App from './App';
 import FakeRedux from './FakeRedux';
 import AppNoProps from './AppNoProps';
 import DispatchConnect from './DispatchConnect';
-import AppConnect from './AppConnect';
+//import AppConnect from './AppConnect';
 import registerServiceWorker from './registerServiceWorker';
 import Connector from './Connector';
 
@@ -27,7 +27,7 @@ ReactDOM.render(
                 <DispatchConnect/>
                 <hr />
                 <hr />
-                <AppConnect/>
+                {/*<AppConnect/> Doesn't Connector already display this component?*/}
                 <Connector/>
                 <hr />
                 <hr />
