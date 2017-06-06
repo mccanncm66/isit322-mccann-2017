@@ -4,7 +4,7 @@ import App from './App';
 import FakeRedux from './FakeRedux';
 import AppNoProps from './AppNoProps';
 import DispatchConnect from './DispatchConnect';
-//import AppConnect from './AppConnect';
+import AppConnect from './AppConnect';
 import registerServiceWorker from './registerServiceWorker';
 import Connector from './Connector';
 
@@ -19,18 +19,14 @@ ReactDOM.render(
         <Provider store={store}>
             <div>
                 <App store={store} />
-                <hr />
-                <hr />
+                <hr /><hr />
                 <AppNoProps/>
-                <hr />
-                <hr />
+                <hr /><hr />
                 <DispatchConnect/>
-                <hr />
-                <hr />
-                {/*<AppConnect/> Doesn't Connector already display this component?*/}
+                <hr /><hr />
+                <AppConnect/>
                 <Connector/>
-                <hr />
-                <hr />
+                <hr /><hr />
                 <FakeRedux />
             </div>
         </Provider>
