@@ -73,7 +73,7 @@ const gistReducer = (state = gistState, action) => {
             return Object.assign({}, state, {
                 numbers: {
                     nine: state.numbers.nine,
-                    eight: 8,
+                    eight: state.numbers.eight,
                     seven: state.numbers.seven,
                     six: 6,
                     five: state.numbers.five,
@@ -88,7 +88,7 @@ const gistReducer = (state = gistState, action) => {
             return Object.assign({}, state, {
                 numbers: {
                     nine: state.numbers.nine,
-                    eight: 8,
+                    eight: state.numbers.eight,
                     seven: state.numbers.seven,
                     six: state.numbers.six,
                     five: 5,
@@ -103,7 +103,7 @@ const gistReducer = (state = gistState, action) => {
             return Object.assign({}, state, {
                 numbers: {
                     nine: state.numbers.nine,
-                    eight: 8,
+                    eight: state.numbers.eight,
                     seven: state.numbers.seven,
                     six: state.numbers.six,
                     five: state.numbers.five,
@@ -118,7 +118,7 @@ const gistReducer = (state = gistState, action) => {
             return Object.assign({}, state, {
                 numbers: {
                     nine: state.numbers.nine,
-                    eight: 8,
+                    eight: state.numbers.eight,
                     seven: state.numbers.seven,
                     six: state.numbers.six,
                     five: state.numbers.five,
@@ -133,7 +133,7 @@ const gistReducer = (state = gistState, action) => {
             return Object.assign({}, state, {
                 numbers: {
                     nine: state.numbers.nine,
-                    eight: 8,
+                    eight: state.numbers.eight,
                     seven: state.numbers.seven,
                     six: state.numbers.six,
                     five: state.numbers.five,
@@ -148,7 +148,7 @@ const gistReducer = (state = gistState, action) => {
             return Object.assign({}, state, {
                 numbers: {
                     nine: state.numbers.nine,
-                    eight: 8,
+                    eight: state.numbers.eight,
                     seven: state.numbers.seven,
                     six: state.numbers.six,
                     five: state.numbers.five,
