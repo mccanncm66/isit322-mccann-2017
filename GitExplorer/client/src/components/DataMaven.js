@@ -6,7 +6,7 @@ import ElfHeader from './ElfHeader';
 import GetUserInfo from './GetUserInfo';
 import GetFoo from './GetFoo';
 import SmallNumbers from './SmallNumbers';
-import numbersInit from '../numbers-data';
+//import numbersInit from '../numbers-data';
 import fieldDefinitions from '../field-definitions';
 import ShowNewGist from './ShowNewGist';
 import GistLister from './GistLister';
@@ -177,12 +177,8 @@ class DataMaven extends Component {
                                      fetchJSO={this.fetchJSO}
                         />
                     )}/>
-                    <Route path='/get-numbers'
-                           render={(props) => (
-                               <SmallNumbers {...props}
-                                             numbers={numbersInit}/>
-                           )}
-                    />
+                    <Route path='/get-numbers' component={SmallNumbers} />
+
                 </div>
             </Router>
         );
@@ -190,4 +186,12 @@ class DataMaven extends Component {
 }
 
 export default DataMaven;
+
+
+/*<Route path='/get-numbers'
+       render={(props) => (
+           <SmallNumbers {...props}
+                         numbers={numbersInit}/>
+       )}
+/>*/
 

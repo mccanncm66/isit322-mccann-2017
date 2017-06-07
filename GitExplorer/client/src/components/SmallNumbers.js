@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import { Button } from 'react-bootstrap';
-
+import {connect} from 'react-redux';
 
 const error = {
     message: "No props in the small numbers component. you must pass in props."
@@ -15,7 +15,7 @@ class SmallNumbers extends Component {
             alert("No props in the small numbers component. you must pass in props.");
             throw error.message;
         }
-        this.state = {
+/*        this.state = {
             nine: props.numbers.nine,
             eight: props.numbers.eight,
             seven: props.numbers.seven,
@@ -25,43 +25,43 @@ class SmallNumbers extends Component {
             three: props.numbers.three,
             two: props.numbers.two,
             one: props.numbers.one
-        };
+        };*/
     }
 
     getNine = () => {
-        this.setState({nine: '9'});
+        this.props.dispatch({type: 'NUMBER_NINE'});
     };
 
     getEight = () => {
-        this.setState({eight: '8'});
+        this.props.dispatch({type: 'NUMBER_EIGHT'});
     };
 
     getSeven = () => {
-        this.setState({seven: '7'});
+        this.props.dispatch({type: 'NUMBER_SEVEN'});
     };
 
     getSix = () => {
-        this.setState({six: '6'});
+        this.props.dispatch({type: 'NUMBER_SIX'});
     };
 
     getFive = () => {
-        this.setState({five: '5'});
+        this.props.dispatch({type: 'NUMBER_FIVE'});
     };
 
     getFour = () => {
-        this.setState({four: '4'});
+        this.props.dispatch({type: 'NUMBER_FOUR'});
     };
 
     getThree = () => {
-        this.setState({three: '3'});
+        this.props.dispatch({type: 'NUMBER_THREE'});
     };
 
     getTwo = () => {
-        this.setState({two: '2'});
+        this.props.dispatch({type: 'NUMBER_TWO'});
     };
 
     getOne = () => {
-        this.setState({one: '1'});
+        this.props.dispatch({type: 'NUMBER_ONE'});
     };
 
 
@@ -70,52 +70,65 @@ class SmallNumbers extends Component {
         return (
             <div className="App">
                 <label className="pup-label-number">
-                    state.nine: {this.state.nine}
+                    state.nine: {this.props.numbers.nine}
                 </label>
                 <Button className="numberButton" onClick={this.getNine}>Get Nine</Button> <br />
                 <label className="pup-label-number">
-                    state.eight: {this.state.eight}
+                    state.eight: {this.props.numbers.eight}
                 </label>
                 <Button className="numberButton" onClick={this.getEight}>Get Eight</Button> <br />
 
                 <label className="pup-label-number">
-                    state.seven: {this.state.seven}
+                    state.seven: {this.props.numbers.seven}
                 </label>
                 <Button className="numberButton" onClick={this.getSeven}>Get Seven</Button> <br />
 
                 <label className="pup-label-number">
-                    state.six: {this.state.six}
+                    state.six: {this.props.numbers.six}
                 </label>
                 <Button className="numberButton" onClick={this.getSix}>Get Six</Button> <br />
 
                 <label className="pup-label-number">
-                    state.five: {this.state.five}
+                    state.five: {this.props.numbers.five}
                 </label>
                 <Button className="numberButton" onClick={this.getFive}>Get Five</Button> <br />
 
                 <label className="pup-label-number">
-                    state.four: {this.state.four}
+                    state.four: {this.props.numbers.four}
                 </label>
                 <Button className="numberButton" onClick={this.getFour}>Get Four</Button> <br />
 
                 <label className="pup-label-number">
-                    state.three: {this.state.three}
+                    state.three: {this.props.numbers.three}
                 </label>
                 <Button className="numberButton" onClick={this.getThree}>Get Three</Button> <br />
 
                 <label className="pup-label-number">
-                    state.two: {this.state.two}
+                    state.two: {this.props.numbers.two}
                 </label>
                 <Button className="numberButton" onClick={this.getTwo}>Get Two</Button> <br />
 
                 <label className="pup-label-number">
-                    state.one: {this.state.one}
+                    state.one: {this.props.numbers.one}
                 </label>                
                 <Button className="numberButton" onClick={this.getOne}>Get One</Button> <br />
             </div>
         );
     }
 }
+
+
+
+// SMALL NUMBERS ITSELF HERE.
+// AND AT THE BOTTOM:
+
+const mapStateToProps = (state) => {
+    return {
+        numbers: state.numbers
+    };
+};
+
+SmallNumbers = connect(mapStateToProps)(SmallNumbers);
 
 export default SmallNumbers;
 
