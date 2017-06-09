@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/foo', function(request, response, next) {
     const message = {'result': 'routes-success', 'foo': 'routes-barseer', 'file': 'routes-api.js'};
-    logger.log('Foo called on server with message:', message);
+    //logger.log('Foo called on server with message:', message);
     response.send(message);
 });
 
