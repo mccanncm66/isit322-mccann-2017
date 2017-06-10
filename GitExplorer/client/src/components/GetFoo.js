@@ -14,7 +14,6 @@ class GetFoo extends Component {
             foo: 'waiting for server',
             avatar: 'waiting for git image'
         };
-
         // SET quiet TO false TO SEE DEBUG MESSAGES
         this.quiet = true;
        // this.debug('GetFoo constructor called');
@@ -35,7 +34,6 @@ class GetFoo extends Component {
             }).then(function (json) {
                 that.debug('GETONE-FETCH-TWO');
                 that.debug('parsed json', json);
-                //console.log('parsed json', json);
                 that.setState(foo => (json));
             }).catch(function (ex) {
                 console.log('parsing failed', ex);
@@ -66,15 +64,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-/*        getBar: () => {
-            dispatch({
-                type: 'GETFOO',
-                getFoo: {
-                    foo: 'url-mock-bar',
-                    file: 'url-mock-api.js'
-                }
-            });
-        },*/
         getFoo: () => {
             fetch('/foo')
                 .then(function(response) {
