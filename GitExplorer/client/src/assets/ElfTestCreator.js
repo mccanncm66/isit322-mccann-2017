@@ -3,8 +3,8 @@
  */
 import { mount } from 'enzyme';
 import React from 'react';
-import GetUserInfo from './components/GetUserInfo';
-import DataMaven from './components/DataMaven';
+import GetUserInfo from '../components/GetUserInfo';
+import DataMaven from '../components/DataMaven';
 import ElfDebug from './ElfDebug';
 const elfDebug = new ElfDebug(true);
 

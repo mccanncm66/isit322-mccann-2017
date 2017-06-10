@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import ElfHeader from '../components/ElfHeader';
 import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
-import ElfEnzymeDebug from '../ElfEnzymeDebug';
+import ElfEnzymeDebug from '../assets/ElfEnzymeDebug';
 var elfDebug = new ElfEnzymeDebug(false, 'header-test');
 import {
     BrowserRouter as Router,

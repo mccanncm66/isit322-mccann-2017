@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import ElfElements from './ElfElements';
-import Debug from '../ElfLogger'
+import Debug from '../assets/ElfLogger'
 import {Button} from 'react-bootstrap';
 const logger = new Debug(false);
 

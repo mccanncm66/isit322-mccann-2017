@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ElfDebug from '../ElfDebug';
-import ElfTest from '../ElfTestCreator';
+import ElfDebug from '../assets/ElfDebug';
+import ElfTest from '../assets/ElfTestCreator';
 import DataMaven from '../components/DataMaven';
 const elfDebug = new ElfDebug(true);
 const elfTester = new ElfTest();

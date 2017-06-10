@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
-import Debug from '../ElfLogger';
+import Debug from '../assets/ElfLogger';
 import ElfHeader from './ElfHeader';
 import GetUserInfo from './GetUserInfo';
 import GetFoo from './GetFoo';
 import SmallNumbers from './SmallNumbers';
 //import numbersInit from '../numbers-data';
-import fieldDefinitions from '../field-definitions';
+import fieldDefinitions from '../assets/field-definitions';
 import ShowNewGist from './ShowNewGist';
 import GistLister from './GistLister';
 import ShowJso from './ShowJso';

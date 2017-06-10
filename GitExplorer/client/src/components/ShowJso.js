@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import { Button } from 'react-bootstrap';
-import Logger from '../ElfLogger';
+import Logger from '../assets/ElfLogger';
 const logger = new Logger('show-new-gist');
 //import mock from './mocks';
 //var fetch = require('../mocks').fetch;

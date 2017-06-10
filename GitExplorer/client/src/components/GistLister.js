@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ElfLogger from '../ElfLogger';
+import ElfLogger from '../assets/ElfLogger';
 import { Button } from 'react-bootstrap';
 const logger = new ElfLogger('gist-lister');
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import ShowUserInfo from '../components/ShowUserInfo';
-import fieldDefinitions from '../field-definitions';
+import fieldDefinitions from '../assets/field-definitions';
 import ReactDOM from 'react-dom';
-import ElfDebug from '../ElfDebug';
+import ElfDebug from '../assets/ElfDebug';
 const elfDebug = new ElfDebug(false);
 
 import { shallow } from 'enzyme';

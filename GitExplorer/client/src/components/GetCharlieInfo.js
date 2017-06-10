@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
-import Debug from '../ElfLogger';
+import Debug from '../assets/ElfLogger';
 import ShowUserInfo from './ShowUserInfo'
-import fieldDefinitions from '../field-definitions';
+import fieldDefinitions from '../assets/field-definitions';
 const logger = new Debug(false);
 
 class GetUserInfo extends Component {
