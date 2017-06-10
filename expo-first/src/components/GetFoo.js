@@ -77,7 +77,7 @@ const mapDispatchToProps = (dispatch) => {
             });
         },*/
         getFoo: () => {
-            fetch('http://168.156.47.131:30025/foo')
+            fetch('http://192.168.1.6:30025/foo')
                 .then(function(response) {
                     return response.json();
                 }).then(function(json) {
