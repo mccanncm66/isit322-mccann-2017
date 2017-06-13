@@ -1,0 +1,78 @@
+.elf-ul li {
+  font-size:18px;
+}
+.gistImg {
+  width:200px;
+  height:200px;
+}
+.App-logo {
+/*  !*animation: App-logo-spin infinite 20s linear;*!*/
+height: 80px;
+}
+.numberButton {
+  margin-left:15px;
+  width:125px;
+}
+
+.pup-label-number {
+  width:100px;
+  margin-bottom:15px;
+}
+.pup-label-foo {
+
+}
+
+.scrollbox {
+  width: 100%;
+  height:500px;
+  padding:7px;
+  overflow: auto;
+}
+
+/*.App {
+  text-align: center;
+}*/
+
+/*.App-logo {
+  !*animation: App-logo-spin infinite 20s linear;*!
+  height: 80px;
+}
+
+.App-header {
+  background-color: #2aabd2;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}*/
+
+/*.ElfFormLabel {
+  font-weight:bolder;
+  color: #2b669a;
+}
+
+#gistList {
+  margin:0 auto;
+  text-align: center;
+}
+
+.fancyDivider {
+  color:blue;
+  height:10px;
+  background-color: #2aabd2;
+  margin: 0 auto;
+  width:500px;
+}
+
+.gistImg {
+  width:200px;
+  height:200px;
+}*/

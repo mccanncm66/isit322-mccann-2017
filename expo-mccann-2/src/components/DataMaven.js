@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
-import Debug from '../assets/ElfLogger';
+import Debug from '../ElfLogger';
 import ElfHeader from './ElfHeader';
 import GetUserInfo from './GetUserInfo';
 import GetFoo from './GetFoo';
 import SmallNumbers from './SmallNumbers';
 //import numbersInit from '../numbers-data';
-import fieldDefinitions from '../assets/field-definitions';
+import fieldDefinitions from '../field-definitions';
 import ShowNewGist from './ShowNewGist';
 import GistLister from './GistLister';
 import ShowJso from './ShowJso';
@@ -19,7 +19,7 @@ const logger = new Debug('data-maven');
 
 class DataMaven extends Component {
 
-    constructor(){
+    constructor() {
         super();
         const tempGitUser = {};
         for (let value of fieldDefinitions) {
@@ -49,135 +49,135 @@ class DataMaven extends Component {
                     htmlUrl: 'https://gist.github.com/a023c7db77926ff58d35087821e12020',
                     id: 'a023c7db77926ff58d35087821e12020',
                     gitPullUrl: 'https://gist.github.com/a023c7db77926ff58d35087821e12020.git',
-                    description: 'Simple React Component',
+                    description: 'Simple React Component'                        ,
                     ownerLogin: 'login default',
                     avatarUrl: 'avatart default'
                 }
             ]
         };
-    }
+    };
 
-    debug = (message) =>{
+    debug = (message) => {
         if (!this.quiet) {
             console.log(message);
         }
     };
 
-    gistDelete = (param, callback) =>{
+    gistDelete = (param, callback) => {
         const url = '/gists/delete?gistId=' + param;
         return fetch(url)
             .then((res) => res.json())
-            .then((json) =>{
+            .then((json) => {
                 console.log(json);
                 callback();
             })
             .catch((ex) => console.log('Fetch Exception', ex));
     };
 
-    fetchUser = (event) =>{
+    fetchUser = (event) => {
         logger.log('--GetUserInfo Fetch User Being Called--');
         event.preventDefault();
         const that = this;
         fetch('/user/get-user')
-            .then((response) =>{
-                console.log(response);
+            .then((response) => {
+            console.log(response);
                 return response.json();
-            }).then((json) =>{
+            }).then((json) => {
             const body = JSON.parse(json.body);
             that.setState({gitUser: body});
-        }).catch((ex) =>{
+        }).catch((ex) => {
             logger.log('ERROR:', ex);
         });
 
     };
 
-    fetchGist = (fileName, description) =>{
+    fetchGist = (fileName, description) => {
         const that = this;
         const url = '/gists/gist-test?name=' + fileName + '&description=' + description;
         fetch(url)
-            .then((response) =>{
+            .then((response) => {
                 return response.json();
-            }).then((json) =>{
+            }).then((json) => {
             const body = json.result;
             that.setState({gitGist: body});
-        }).catch((ex) =>{
+        }).catch((ex) => {
             logger.log('ERROR:', ex);
         });
 
     };
 
-    fetchGistLists = (event) =>{
-        if (event) {
+    fetchGistLists = (event) => {
+        if(event) {
             event.preventDefault();
         }
         const that = this;
         fetch('/gists/get-gist-list')
-            .then((response) =>{
+            .then((response) => {
                 return response.json();
-            }).then((json) =>{
+            }).then((json) => {
             const body = json.result;
             that.setState({
                 gistList: body,
                 gistCanIterate: false
             });
-        }).catch((ex) =>{
+        }).catch((ex) => {
             logger.log('ERROR:', ex);
         });
 
     };
 
-    fetchJSO = (event) =>{
+    fetchJSO = (event) => {
         logger.log('--DataMaven FetchJSO Being Called--');
         event.preventDefault();
         const that = this;
         fetch('/user/charlie-jso')
-            .then((response) =>{
+            .then((response) => {
                 return response.json();
-            }).then((json) =>{
+            }).then((json) => {
             const body = JSON.parse(json.body);
             that.setState({gitJso: body});
-        }).catch((ex) =>{
+        }).catch((ex) => {
             logger.log('ERROR:', ex);
         });
 
     };
 
-    render = () =>{
+    render = () => {
         return (
             <Router history="">
                 <div className="container">
                     <ElfHeader />
                     <Route exact path='/'
                            render={(props) => (
-                               <GetUserInfo {...props}
+                           <GetUserInfo {...props}
                                             fields={fieldDefinitions}
                                             gitUser={this.state.gitUser}
                                             onChange={this.fetchUser}/>
                            )}
-                    />
+                       />
 
                     <Route path='/get-foo' component={GetFoo}/>
                     <Route path='/show-new-gist' render={(props) => (
                         <ShowNewGist {...props}
-                                     gitGist={this.state.gitGist}
-                                     fetchGist={this.fetchGist}
-                        />
+                                        gitGist={this.state.gitGist}
+                                        fetchGist={this.fetchGist}
+                                     />
                     )}/>
                     <Route path='/get-gist-list' render={(props) => (
                         <GistLister {...props}
-                                    gistList={this.state.gistList}
-                                    fetchGistLists={this.fetchGistLists}
-                                    gistCanIterate={this.state.gistCanIterate}
-                                    gistDelete={this.gistDelete}
+                                     gistList={this.state.gistList}
+                                     fetchGistLists={this.fetchGistLists}
+                                     gistCanIterate={this.state.gistCanIterate}
+                                     gistDelete={this.gistDelete}
                         />
                     )}/>
                     <Route path='/charlie-jso' render={(props) => (
                         <ShowJso {...props}
-                                 gitJso={this.state.gitJso}
-                                 fetchJSO={this.fetchJSO}
+                                    gitJso={this.state.gitJso}
+                                     fetchJSO={this.fetchJSO}
                         />
                     )}/>
-                    <Route path='/get-numbers' component={SmallNumbers}/>
+                    <Route path='/get-numbers' component={SmallNumbers} />
 
                 </div>
             </Router>
@@ -189,9 +189,9 @@ export default DataMaven;
 
 
 /*<Route path='/get-numbers'
- render={(props) => (
- <SmallNumbers {...props}
- numbers={numbersInit}/>
- )}
- />*/
+       render={(props) => (
+           <SmallNumbers {...props}
+                         numbers={numbersInit}/>
+       )}
+/>*/
 

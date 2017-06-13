@@ -77,39 +77,40 @@ class SmallNumbers extends Component {
                 </Text>
                 <Button title="Get Eight" onPress={this.getEight} />
 
-                 <Text>
+{/*                <Text className="pup-label-number">
                     state.seven: {this.props.numbers.seven}
                 </Text>
-                <Button onPress={this.getSeven}>Get Seven</Button> <br />
+                <Button bsStyle="danger" className="numberButton" onPress={this.getSeven}>Get Seven</Button> <br />
 
-                <Text>
+                <Text className="pup-label-number">
                     state.six: {this.props.numbers.six}
                 </Text>
-                <Button onPress={this.getSix}>Get Six</Button> <br />
+                <Button bsStyle="danger" className="numberButton" onPress={this.getSix}>Get Six</Button> <br />
 
-                <Text>
+                <Text className="pup-label-number">
                     state.five: {this.props.numbers.five}
                 </Text>
-                <Button onPress={this.getFive}>Get Five</Button> <br />
+                <Button bsStyle="danger" className="numberButton" onPress={this.getFive}>Get Five</Button> <br />
 
-                <Text>
+                <Text className="pup-label-number">
                     state.four: {this.props.numbers.four}
                 </Text>
-                <Button onPress={this.getFour}>Get Four</Button> <br />
-                <Text>
+                <Button bsStyle="danger" className="numberButton" onPress={this.getFour}>Get Four</Button> <br />
+
+                <Text className="pup-label-number">
                     state.three: {this.props.numbers.three}
                 </Text>
-                <Button onPress={this.getThree}>Get Three</Button> <br />
+                <Button bsStyle="danger" className="numberButton" onPress={this.getThree}>Get Three</Button> <br />
 
-                <Text>
+                <Text className="pup-label-number">
                     state.two: {this.props.numbers.two}
                 </Text>
-                <Button onPress={this.getTwo}>Get Two</Button> <br />
+                <Button bsStyle="danger" className="numberButton" onPress={this.getTwo}>Get Two</Button> <br />
 
-                <Text>
+                <Text className="pup-label-number">
                     state.one: {this.props.numbers.one}
                 </Text >
-                <Button onPress={this.getOne}>Get One</Button> <br />*/}
+                <Button bsStyle="danger" className="numberButton" onPress={this.getOne}>Get One</Button> <br />*/}
             </View>
         );
     }
