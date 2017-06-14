@@ -20,7 +20,7 @@ router.get('/foo', function(request, response, next) {
 });
 
 router.get('/user/get-user', function(request, response, next) {
-    requester('http://localhost:30026/get-user').pipe(response);
+    requester('https://git-user-service.herokuapp.com/get-user').pipe(response);
 });
 
 router.get('/user/charlie-jso', function(request, response, next) {
@@ -28,7 +28,7 @@ router.get('/user/charlie-jso', function(request, response, next) {
 });
 
 router.get('/gists/get-gist-list', function(request, response, next) {
-    requester('http://localhost:30027/get-gist-list').pipe(response);
+    requester('https://gist-service.herokuapp.com/get-gist-list').pipe(response);
 });
 
 router.get('/gists/gist-test', function(request, response, next) {
@@ -36,13 +36,13 @@ router.get('/gists/gist-test', function(request, response, next) {
     let description = request.query.description;
     console.log('from index');
     console.log(fileName);
-    requester('http://localhost:30027/gist-test?name=' + fileName + '&description=' + description).pipe(response);
+    requester('https://gist-service.herokuapp.com/gist-test?name=' + fileName + '&description=' + description).pipe(response);
 });
 
 router.get('/gists/delete', function(request, response, next) {
     const param = request.query.gistId;
     const url = '/delete?gistId=' + param;
-    requester('http://localhost:30027' + url).pipe(response);
+    requester('https://gist-service.herokuapp.com' + url).pipe(response);
 });
 
 module.exports = router;
