@@ -28,6 +28,7 @@ class ElfHeader extends Component {
                         <LinkContainer to='/get-numbers'><NavItem>Numbers</NavItem></LinkContainer>
                         <LinkContainer to='/get-foo'><NavItem>BarFoo</NavItem></LinkContainer>
                         <LinkContainer to='/charlie-jso'><NavItem>Show JsObjects</NavItem></LinkContainer>
+                        <LinkContainer to='/test-micros'><NavItem>Test Mircos</NavItem></LinkContainer>
 
                     </Nav>
 

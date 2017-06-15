@@ -6,6 +6,7 @@ import ElfHeader from './ElfHeader';
 import GetUserInfo from './GetUserInfo';
 import GetFoo from './GetFoo';
 import SmallNumbers from './SmallNumbers';
+import TestMicros from './TestMicros';
 //import numbersInit from '../numbers-data';
 import fieldDefinitions from '../assets/field-definitions';
 import ShowNewGist from './ShowNewGist';
@@ -157,6 +158,7 @@ class DataMaven extends Component {
                        />
 
                     <Route path='/get-foo' component={GetFoo}/>
+                    <Route path='/test-micros' component={TestMicros}/>
                     <Route path='/show-new-gist' render={(props) => (
                         <ShowNewGist {...props}
                                         gitGist={this.state.gitGist}

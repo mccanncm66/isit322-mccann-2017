@@ -13,12 +13,51 @@ const gistState = {
         three: '0',
         two: '0',
         one: '0'
+    },
+    micros: {
+        userService: {
+            message: 'not tested',
+            result: 'not tested'
+        },
+        quxService: {
+            message: 'not tested',
+            result: 'not tested'
+        },
+        gistService: {
+            message: 'not tested',
+            result: 'not tested'
+        }
     }
 
 };
 
 const gistReducer = (state = gistState, action) => {
     switch (action.type) {
+        case 'USERSERVICE':
+            return Object.assign({}, state, {
+                micros: {
+                    userService: action.micros.userService,
+                    quxService: state.micros.quxService,
+                    gistService: state.micros.gistService
+
+                }
+            });
+        case 'QUXSERVICE':
+            return Object.assign({}, state, {
+                micros: {
+                    userService: state.micros.userService,
+                    quxService: action.micros.quxService,
+                    gistService: state.micros.gistService
+                }
+            });
+        case 'foobar':
+            return Object.assign({}, state, {
+                micros: {
+                    userService: state.micros.userService,
+                    quxService: state.micros.quxService,
+                    gistService: action.micros.gistService
+                }
+            });
         case 'GETFOO':
             return Object.assign({}, state, {
                 getFoo: action.getFoo

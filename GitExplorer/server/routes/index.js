@@ -24,7 +24,7 @@ router.get('/user/get-user', function(request, response, next) {
 });
 
 router.get('/user/charlie-jso', function(request, response, next) {
-    requester('http://localhost:30026/charlie-jso').pipe(response);
+    requester('https://git-user-service.herokuapp.com/charlie-jso').pipe(response);
 });
 
 router.get('/gists/get-gist-list', function(request, response, next) {
@@ -43,6 +43,22 @@ router.get('/gists/delete', function(request, response, next) {
     const param = request.query.gistId;
     const url = '/delete?gistId=' + param;
     requester('https://gist-service.herokuapp.com' + url).pipe(response);
+});
+
+/*MICRO SERVICES*/
+
+router.get('/user/you-rang', function(request, response, next) {
+    requester('https://git-user-service.herokuapp.com/you-rang').pipe(response);
+    //requester('http://localhost:30026/you-rang').pipe(response);
+});
+router.get('/qux/you-rang', function(request, response, next) {
+    requester('https://git-user-service.herokuapp.com/you-rang').pipe(response);
+    //requester('http://localhost:30026/you-rang').pipe(response);
+});
+
+router.get('/gists/you-rang', function(request, response, next) {
+    requester('https://gist-service.herokuapp.com/you-rang').pipe(response);
+    //requester('http://localhost:30026/you-rang').pipe(response);
 });
 
 module.exports = router;

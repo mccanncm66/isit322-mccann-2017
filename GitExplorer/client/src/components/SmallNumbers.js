@@ -10,22 +10,10 @@ const error = {
 class SmallNumbers extends Component {
     constructor(props) {
         super(props);
-        //console.log('TEST PROPS', props);
         if(!props.numbers){
             alert("No props in the small numbers component. you must pass in props.");
             throw error.message;
         }
-/*        this.state = {
-            nine: props.numbers.nine,
-            eight: props.numbers.eight,
-            seven: props.numbers.seven,
-            six: props.numbers.six,
-            five: props.numbers.five,
-            four: props.numbers.four,
-            three: props.numbers.three,
-            two: props.numbers.two,
-            one: props.numbers.one
-        };*/
     }
 
     getNine = () => {
@@ -63,8 +51,6 @@ class SmallNumbers extends Component {
     getOne = () => {
         this.props.dispatch({type: 'NUMBER_ONE'});
     };
-
-
 
     render() {
         return (
@@ -116,11 +102,6 @@ class SmallNumbers extends Component {
         );
     }
 }
-
-
-
-// SMALL NUMBERS ITSELF HERE.
-// AND AT THE BOTTOM:
 
 const mapStateToProps = (state) => {
     return {
