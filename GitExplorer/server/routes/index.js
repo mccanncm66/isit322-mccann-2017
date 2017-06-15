@@ -20,7 +20,9 @@ router.get('/foo', function(request, response, next) {
 });
 
 router.get('/user/get-user', function(request, response, next) {
-    requester('https://git-user-service.herokuapp.com/get-user').pipe(response);
+    let userName = request.query.name;
+    //requester('http://localhost:30026/get-user?name=' + userName).pipe(response);
+    requester('https://git-user-service.herokuapp.com/get-user?name=' + userName).pipe(response);
 });
 
 router.get('/user/charlie-jso', function(request, response, next) {
@@ -45,20 +47,17 @@ router.get('/gists/delete', function(request, response, next) {
     requester('https://gist-service.herokuapp.com' + url).pipe(response);
 });
 
-/*MICRO SERVICES*/
+/*MICRO SERVICES TEST*/
 
 router.get('/user/you-rang', function(request, response, next) {
     requester('https://git-user-service.herokuapp.com/you-rang').pipe(response);
-    //requester('http://localhost:30026/you-rang').pipe(response);
 });
 router.get('/qux/you-rang', function(request, response, next) {
     requester('https://qux-service.herokuapp.com/you-rang').pipe(response);
-    //requester('http://localhost:30026/you-rang').pipe(response);
 });
 
 router.get('/gists/you-rang', function(request, response, next) {
     requester('https://gist-service.herokuapp.com/you-rang').pipe(response);
-    //requester('http://localhost:30026/you-rang').pipe(response);
 });
 
 module.exports = router;

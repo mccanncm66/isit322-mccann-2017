@@ -13,180 +13,180 @@ export default [
     {
         id: 'login',
         label: 'login',
-        type: 'paragraph',
+        type: 'input',
         sample: 'login unknown'
     },
     {
         id: 'id',
         label: 'id',
-        type: 'paragraph',
+        type: 'input',
         sample: 'id unknown'},
     {
         id: 'avatar_url',
         label: 'avatar_url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'avatar_url unknown'
     },
     {
         id: 'gravatar_id',
         label: 'gravatar_id',
-        type: 'paragraph',
+        type: 'input',
         sample: 'gravatar_id unknown'
     },
     {
         id: 'url',
         label: 'url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'url unknown'
     },
     {
         id: 'html_url',
         label: 'html_url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'html_url unknown'
     },
     {
         id: 'followers_url',
         label: 'followers_url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'followers_url unknown'
     },
     {
         id: 'following_url',
         label: 'following_url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'following_url unknown'
     },
     {
         id: 'gists_url',
         label: 'gists_url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'gists_url unknown'
     },
     {
         id: 'starred_url',
         label: 'starred_url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'starred_url unknown'
     },
     {
         id: 'subscriptions_url',
         label: 'subscriptions_url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'subscriptions_url unknown'
     },
     {
         id: 'organizations_url',
         label: 'organizations_url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'organizations_url unknown'
     },
     {
         id: 'repos_url',
         label: 'repos_url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'repos_url unknown'
     },
     {
         id: 'events_url',
         label: 'events_url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'events_url unknown'
     },
     {
         id: 'received_events_url',
         label: 'received_events_url',
-        type: 'paragraph',
+        type: 'input',
         sample: 'received_events_url unknown'
     },
     {
         id: 'type',
         label: 'type',
-        type: 'paragraph',
+        type: 'input',
         sample: 'type unknown'
     },
     {
         id: 'site_admin',
         label: 'site_admin',
-        type: 'paragraph',
+        type: 'input',
         sample: 'site_admin unknown'
     },
     {
         id: 'name',
         label: 'name',
-        type: 'paragraph',
+        type: 'input',
         sample: 'name unknown'
     },
     {
         id: 'company',
         label: 'company',
-        type: 'paragraph',
+        type: 'input',
         sample: 'company unknown'
     },
     {
         id: 'blog',
         label: 'blog',
-        type: 'paragraph',
+        type: 'input',
         sample: 'blog unknown'
     },
     {
         id: 'location',
         label: 'location',
-        type: 'paragraph',
+        type: 'input',
         sample: 'location unknown'
     },
     {
         id: 'email',
         label: 'email',
-        type: 'paragraph',
+        type: 'input',
         sample: 'email unknown'
     },
     {
         id: 'hireable',
         label: 'hireable',
-        type: 'paragraph',
+        type: 'input',
         sample: 'hireable unknown'
     },
     {
         id: 'bio',
         label: 'bio',
-        type: 'paragraph',
+        type: 'input',
         sample: 'bio unknown'
     },
     {
         id: 'public_repos',
         label: 'public_repos',
-        type: 'paragraph',
+        type: 'input',
         sample: 'public_repos unknown'
     },
     {
         id: 'public_gists',
         label: 'public_gists',
-        type: 'paragraph',
+        type: 'input',
         sample: 'public_gists unknown'
     },
     {
         id: 'followers',
         label: 'followers',
-        type: 'paragraph',
+        type: 'input',
         sample: 'followers unknown'
     },
     {
         id: 'following',
         label: 'following',
-        type: 'paragraph',
+        type: 'input',
         sample: 'following unknown'
     },
     {
         id: 'created_at',
         label: 'created_at',
-        type: 'paragraph',
+        type: 'input',
         sample: 'created_at unknown'
     },
     {
         id: 'updated_at',
         label: 'updated_at',
-        type: 'paragraph',
+        type: 'input',
         sample: 'updated_at unknown'
     }
 ]

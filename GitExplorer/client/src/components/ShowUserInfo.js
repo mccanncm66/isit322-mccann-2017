@@ -13,6 +13,10 @@ class ShowUserInfo extends Component {
         if (!this.props.gitUser) {
             throw new Error("No user data");
         }
+        this.state = {
+            userName: ''
+        };
+        this.getUserInfo = this.getUserInfo.bind(this);
         //this.shouldUpdate = true;
         logger.log('ShowUserInfo constructor called.');
         logger.log('ShowUserInfo props.' + JSON.stringify(this.props.gitUser, null, 4));
@@ -22,7 +26,7 @@ class ShowUserInfo extends Component {
         logger.log(JSON.stringify(field));
         return (
             <div className="form-group" key={field.id}>
-                <label className="form-group-lg"
+                <label className="col-sm-2"
                        htmlFor={field.id}>{field.label}:</label>
                 <ElfElements {...field}
                              value={this.props.gitUser[field.id] ? this.props.gitUser[field.id] : "N/A" }
@@ -32,11 +36,30 @@ class ShowUserInfo extends Component {
         )
     };
 
+    userNameHandleChange = (value) => {
+        logger.log(this.state.userName);
+        this.setState({
+            userName: value
+        });
+    };
+
+    getUserInfo = () => {
+        const userName = this.state.userName ? this.state.userName : 'mccanncm66';
+        this.props.onChange(userName);
+    };
+
     render() {
         return (
             <div>
-                <Button id="getUser" bsStyle="primary" onClick={this.props.onChange}>Get Git User</Button>
-                <div className="scrollbox">
+                <form>
+                    <div className="jumbotron">
+                        <label htmlFor="tbUserName" className="col-sm-2">User Name:</label>
+                        <input id="tbUserName" placeholder="mccanncm66" className="form-control" type="text" onChange={(e) => this.userNameHandleChange(e.target.value)}></input>
+                        <br />
+                        <Button id="getUser" bsStyle="primary" className="btn btn-toolbar" onClick={this.getUserInfo}>Get Git User</Button>
+                    </div>
+                </form>
+                <div className="scrollbox"><br />
                     <form>
                         {
                             this.props.fields.map((field, index) => {

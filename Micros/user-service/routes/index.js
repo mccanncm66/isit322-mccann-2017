@@ -18,8 +18,9 @@ router.get('/you-rang', function (request, response) {
 
 
 router.get('/get-user', function(req, res, next) {
+    let userName = req.query.name;
     const options = {
-        url: 'https://api.github.com/users/mccanncm66',
+        url: 'https://api.github.com/users/' + userName,
         headers: {
             'User-Agent': 'request'
         }

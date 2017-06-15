@@ -75,11 +75,11 @@ class DataMaven extends Component {
             .catch((ex) => console.log('Fetch Exception', ex));
     };
 
-    fetchUser = (event) => {
+    fetchUser = (userName) => {
         logger.log('--GetUserInfo Fetch User Being Called--');
-        event.preventDefault();
+        //event.preventDefault();
         const that = this;
-        fetch('/user/get-user')
+        fetch('/user/get-user?name=' + userName)
             .then((response) => {
             console.log(response);
                 return response.json();
@@ -188,12 +188,4 @@ class DataMaven extends Component {
 }
 
 export default DataMaven;
-
-
-/*<Route path='/get-numbers'
-       render={(props) => (
-           <SmallNumbers {...props}
-                         numbers={numbersInit}/>
-       )}
-/>*/
 

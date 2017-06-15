@@ -37,6 +37,14 @@ class ElfElements extends Component {
 
                     onChange={this.props.onChange}
                 >{this.props.value}</p>;
+            case 'input':
+                return <input
+                    id={this.props.id}
+                    value={this.props.value}
+                    onChange={this.props.onChange}
+                    className="form-control"
+                    type="text"
+                    disabled="true"></input>;
 
             case 'textarea':
                 return <textarea {...common} className="ElfFormInput" value={this.props.value} />;
