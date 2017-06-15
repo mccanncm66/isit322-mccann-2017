@@ -2,11 +2,7 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 const GitHub = require('github-api');
-//const Logger = require('../ElfLogger');
-//const logger = new Logger('gitapi-gists');
-//const loggerDetails = new Logger('gitapi-gists:details'); //could have two different loggers
 
-/* GET home page. */
 router.get('/', function (req, res, next) {
     res.render('index', {title: 'gist-service'});
 });
@@ -17,26 +13,6 @@ router.get('/you-rang', function (request, response) {
         message: 'i am gist-service, up and running'
     });
 });
-
-/*router.get('/charlie', function (req, res, next) {
-    const options = {
-        url: 'https://api.github.com/users/charliecalvert',
-        headers: {
-            'User-Agent': 'request'
-        }
-    };
-
-    request(options, function (error, response, body) {
-        // Print the error if one occurred
-        console.log('error:', error);
-        // Print the response status code if a response was received
-        console.log('statusCode:', response && response.statusCode);
-        // Print the HTML for the Google homepage.
-        console.log('body:', body);
-        res.send({error: error, response: response, body: body});
-    });
-
-});*/
 
 const token = '2ce8c1a3bf4eb4010c1dbc140aa5e205d8b62f24';
 let getGitHub = function () {
@@ -59,9 +35,8 @@ router.get('/gist-test', function (request, response) {
     const description = request.query.description;
     console.log('description=' + description);
     console.log(filename);
-    //const gh = new GitHub();
     const gh = getGitHub();
-    let gist = gh.getGist(); // not a gist yet
+    let gist = gh.getGist();
     gist.create({
         public: true,
         description: description,
@@ -72,13 +47,10 @@ router.get('/gist-test', function (request, response) {
             }
         }
     }).then(function ({data}) {
-        // Promises!
         let createdGist = data;
         return gist.read();
     }).then(function ({data}) {
         let retrievedGist = data;
-        // do interesting things
-        //logger.log('RETRIEVED', retrievedGist);
         response.status(200).send({'result': retrievedGist});
     }).catch(function (err) {
         'use strict';
@@ -92,7 +64,6 @@ router.get('/get-gist-list', (request, response) => {
     const me = gh.getUser();
     me.listGists(
     ).then(function ({data}) {
-        //logger.log('USER PROMISE', data);
         const results = data.map((gist) => (
             {
                 url: gist.url,
@@ -111,13 +82,11 @@ router.get('/get-gist-list', (request, response) => {
             'result': results
         });
     }).catch(function (err) {
-        //logger.log('USER Promise Rejected', err);
         response.status(500).send({'result': err});
     });
 });
 
 router.get('/delete', (request, response, next) => {
-    //logger.log('delete called', request.query);
     const gistId = request.query.gistId;
     console.log('delete called from gist-service');
     console.log(gistId);
@@ -131,7 +100,6 @@ router.get('/delete', (request, response, next) => {
         });
     }).catch((err) => {
         console.log('Failed to delete');
-        //logger.log('Delete promise rejected', err);
         response.status(500).send({'result': err});
     });
 });

@@ -52,7 +52,7 @@ router.get('/user/you-rang', function(request, response, next) {
     //requester('http://localhost:30026/you-rang').pipe(response);
 });
 router.get('/qux/you-rang', function(request, response, next) {
-    requester('https://git-user-service.herokuapp.com/you-rang').pipe(response);
+    requester('https://qux-service.herokuapp.com/you-rang').pipe(response);
     //requester('http://localhost:30026/you-rang').pipe(response);
 });
 
