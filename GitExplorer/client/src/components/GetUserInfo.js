@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../css/App.css';
 import 'whatwg-fetch';
 import Debug from '../assets/ElfLogger';
-import ShowUserInfo from './ShowUserInfo'
+import ShowUserInfo from './ShowUserInfo';
 import fieldDefinitions from '../assets/field-definitions';
 const logger = new Debug(false);
 

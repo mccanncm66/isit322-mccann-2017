@@ -56,7 +56,7 @@ class DataMaven extends Component {
                 }
             ]
         };
-    };
+    }
 
     debug = (message) => {
         if (!this.quiet) {
@@ -81,14 +81,14 @@ class DataMaven extends Component {
         const that = this;
         fetch('/user/get-user?name=' + userName)
             .then((response) => {
-            console.log(response);
+                console.log(response);
                 return response.json();
             }).then((json) => {
-            const body = JSON.parse(json.body);
-            that.setState({gitUser: body});
-        }).catch((ex) => {
-            logger.log('ERROR:', ex);
-        });
+                const body = JSON.parse(json.body);
+                that.setState({gitUser: body});
+            }).catch((ex) => {
+                logger.log('ERROR:', ex);
+            });
 
     };
 
@@ -99,11 +99,11 @@ class DataMaven extends Component {
             .then((response) => {
                 return response.json();
             }).then((json) => {
-            const body = json.result;
-            that.setState({gitGist: body});
-        }).catch((ex) => {
-            logger.log('ERROR:', ex);
-        });
+                const body = json.result;
+                that.setState({gitGist: body});
+            }).catch((ex) => {
+                logger.log('ERROR:', ex);
+            });
 
     };
 
@@ -116,15 +116,14 @@ class DataMaven extends Component {
             .then((response) => {
                 return response.json();
             }).then((json) => {
-            const body = json.result;
-            that.setState({
-                gistList: body,
-                gistCanIterate: false
+                const body = json.result;
+                that.setState({
+                    gistList: body,
+                    gistCanIterate: false
+                });
+            }).catch((ex) => {
+                logger.log('ERROR:', ex);
             });
-        }).catch((ex) => {
-            logger.log('ERROR:', ex);
-        });
-
     };
 
     fetchJSO = (event) => {
@@ -135,12 +134,11 @@ class DataMaven extends Component {
             .then((response) => {
                 return response.json();
             }).then((json) => {
-            const body = JSON.parse(json.body);
-            that.setState({gitJso: body});
-        }).catch((ex) => {
-            logger.log('ERROR:', ex);
-        });
-
+                const body = JSON.parse(json.body);
+                that.setState({gitJso: body});
+            }).catch((ex) => {
+                logger.log('ERROR:', ex);
+            });
     };
 
     render = () => {

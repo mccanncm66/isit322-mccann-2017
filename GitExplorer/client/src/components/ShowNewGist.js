@@ -10,7 +10,7 @@ import { Button } from 'react-bootstrap';
 export class ShowNewGist extends Component {
     constructor() {
         super();
-        logger.log("ShowNewGist being called");
+        logger.log('ShowNewGist being called');
         this.state = {
             filename: '',
             description: ''
@@ -44,7 +44,7 @@ export class ShowNewGist extends Component {
 
     createGist = () => {
         const fName = this.state.filename ? this.state.filename : 'default';
-        const description = this.state.description ? this.state.description : "No description";
+        const description = this.state.description ? this.state.description : 'No description';
         this.props.fetchGist(fName, description);
     };
 

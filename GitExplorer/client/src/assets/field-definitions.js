@@ -189,4 +189,4 @@ export default [
         type: 'input',
         sample: 'updated_at unknown'
     }
-]
+];

@@ -4,7 +4,7 @@ import 'whatwg-fetch';
 import { Button } from 'react-bootstrap';
 import {connect} from 'react-redux';
 
-class TestMicros extends Component {
+let TestMicros = class TestMicros extends Component {
 
     debug = (message) => {
         if (!this.quiet) {
@@ -39,7 +39,7 @@ class TestMicros extends Component {
             </div>
         );
     }
-}
+};
 
 const mapStateToProps = (state) => {
     return {
@@ -58,17 +58,17 @@ const mapDispatchToProps = (dispatch, state) => {
                 .then(function(response) {
                     return response.json();
                 }).then(function(json) {
-                dispatch({
-                    type: 'USERSERVICE',
-                    micros: {
-                        userService: json,
-                        quxService: state.quxService,
-                        gistService: state.gistService
-                    }
+                    dispatch({
+                        type: 'USERSERVICE',
+                        micros: {
+                            userService: json,
+                            quxService: state.quxService,
+                            gistService: state.gistService
+                        }
+                    });
+                }).catch(function(ex) {
+                    console.log('parsing failed', ex);
                 });
-            }).catch(function(ex) {
-                console.log('parsing failed', ex);
-            });
 
         },
         testQuxService: () => {
@@ -76,17 +76,17 @@ const mapDispatchToProps = (dispatch, state) => {
                 .then(function(response) {
                     return response.json();
                 }).then(function(json) {
-                dispatch({
-                    type: 'QUXSERVICE',
-                    micros: {
-                        userService: state.userService,
-                        quxService: json,
-                        gistService: state.gistService
-                    }
+                    dispatch({
+                        type: 'QUXSERVICE',
+                        micros: {
+                            userService: state.userService,
+                            quxService: json,
+                            gistService: state.gistService
+                        }
+                    });
+                }).catch(function(ex) {
+                    console.log('parsing failed', ex);
                 });
-            }).catch(function(ex) {
-                console.log('parsing failed', ex);
-            });
 
         },
         testGistService: () => {
@@ -94,17 +94,17 @@ const mapDispatchToProps = (dispatch, state) => {
                 .then(function(response) {
                     return response.json();
                 }).then(function(json) {
-                dispatch({
-                    type: 'foobar',
-                    micros: {
-                        userService: state.userService,
-                        quxService: state.quxService,
-                        gistService: json
-                    }
+                    dispatch({
+                        type: 'foobar',
+                        micros: {
+                            userService: state.userService,
+                            quxService: state.quxService,
+                            gistService: json
+                        }
+                    });
+                }).catch(function(ex) {
+                    console.log('parsing failed', ex);
                 });
-            }).catch(function(ex) {
-                console.log('parsing failed', ex);
-            });
 
         }
     };

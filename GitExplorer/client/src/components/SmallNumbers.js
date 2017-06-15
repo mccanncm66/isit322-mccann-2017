@@ -4,14 +4,14 @@ import { Button } from 'react-bootstrap';
 import {connect} from 'react-redux';
 
 const error = {
-    message: "No props in the small numbers component. you must pass in props."
+    message: 'No props in the small numbers component. you must pass in props.'
 };
 
-class SmallNumbers extends Component {
+let SmallNumbers = class SmallNumbers extends Component {
     constructor(props) {
         super(props);
         if(!props.numbers){
-            alert("No props in the small numbers component. you must pass in props.");
+            alert('No props in the small numbers component. you must pass in props.');
             throw error.message;
         }
     }
@@ -101,7 +101,7 @@ class SmallNumbers extends Component {
             </div>
         );
     }
-}
+};
 
 const mapStateToProps = (state) => {
     return {

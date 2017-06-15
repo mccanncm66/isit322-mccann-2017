@@ -10,7 +10,7 @@ const logger = new Logger('show-new-gist');
 export class ShowJso extends Component {
     constructor() {
         super();
-        logger.log("ShowNewGist being called");
+        logger.log('ShowNewGist being called');
     }
 
     debug = (message) => {

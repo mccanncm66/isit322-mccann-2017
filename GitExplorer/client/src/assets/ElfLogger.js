@@ -49,14 +49,14 @@ const ElfLogger = class {
 /*                console.info('%c %s: %c %s %s %s',
                     this.titleStyle, this.logger, this.textStyle,
                     message1, message2, message3);*/
-                    console.info(this.logger, message1, message2, message3);
+                console.info(this.logger, message1, message2, message3);
             }
         }
     }
 
     setLogger(newValue) {
         this.logger = newValue;
-    };
+    }
 };
 
 export default ElfLogger;

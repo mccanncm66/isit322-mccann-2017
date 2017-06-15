@@ -4,7 +4,7 @@ import 'whatwg-fetch';
 import { Button } from 'react-bootstrap';
 import {connect} from 'react-redux';
 
-class GetFoo extends Component {
+let GetFoo = class GetFoo extends Component {
 
     debug = (message) => {
         if (!this.quiet) {
@@ -25,7 +25,7 @@ class GetFoo extends Component {
             </div>
         );
     }
-}
+};
 
 const mapStateToProps = (state) => {
     return {
@@ -41,13 +41,13 @@ const mapDispatchToProps = (dispatch) => {
                 .then(function(response) {
                     return response.json();
                 }).then(function(json) {
-                dispatch({
-                    type: 'GETFOO',
-                    getFoo: json
+                    dispatch({
+                        type: 'GETFOO',
+                        getFoo: json
+                    });
+                }).catch(function(ex) {
+                    console.log('parsing failed', ex);
                 });
-            }).catch(function(ex) {
-                console.log('parsing failed', ex);
-            });
 
         }
     };
