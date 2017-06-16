@@ -25,6 +25,12 @@ router.get('/user/get-user', function(request, response, next) {
     requester('https://git-user-service.herokuapp.com/get-user?name=' + userName).pipe(response);
 });
 
+router.get('/user/expo-get-user', function(request, response, next) {
+    let userName = request.query.name;
+    requester('https://git-user-service.herokuapp.com/get-user?name=mccanncm66').pipe(response);
+    //requester('https://git-user-service.herokuapp.com/get-user?name=' + userName).pipe(response);
+});
+
 router.get('/user/charlie-jso', function(request, response, next) {
     requester('https://git-user-service.herokuapp.com/charlie-jso').pipe(response);
 });

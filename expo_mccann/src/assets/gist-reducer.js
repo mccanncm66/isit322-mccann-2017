@@ -13,12 +13,20 @@ const gistState = {
         three: '0',
         two: '0',
         one: '0'
+    },
+    getUser: {
+        login: 'nada',
+        html_url: 'nada'
     }
 
 };
 
 const gistReducer = (state = gistState, action) => {
     switch (action.type) {
+        case 'GETEXPOUSER':
+            return Object.assign({}, state, {
+                getUser: action.getUser
+            });
         case 'GETFOO':
             return Object.assign({}, state, {
                 getFoo: action.getFoo

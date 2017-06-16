@@ -78,7 +78,7 @@ class DataMaven extends Component {
         logger.log('--GetUserInfo Fetch User Being Called--');
         event.preventDefault();
         const that = this;
-        fetch('/user/get-user')
+        fetch('/user/expo-get-user')
             .then((response) => {
             console.log(response);
                 return response.json();

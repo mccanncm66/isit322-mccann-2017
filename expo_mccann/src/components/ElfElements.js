@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import '../css/forms.css';
 import Debug from '../ElfLogger';
 const logger = new Debug(false);
+import {Alert, Button, StyleSheet, Text, View} from 'react-native';
 
 
 class ElfElements extends Component {
@@ -31,12 +31,12 @@ class ElfElements extends Component {
                 );
 
             case 'paragraph':
-                return <p
+                return <Text
                     className="ElfFormParagraph"
                     id={this.props.id}
 
                     onChange={this.props.onChange}
-                >{this.props.value}</p>;
+                >{this.props.value}</Text>;
 
             case 'textarea':
                 return <textarea {...common} className="ElfFormInput" value={this.props.value} />;

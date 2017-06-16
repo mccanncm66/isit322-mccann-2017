@@ -1,55 +1,63 @@
 import React, {Component} from 'react';
-import '../css/App.css';
 import 'whatwg-fetch';
 import ElfElements from './ElfElements';
 import Debug from '../ElfLogger'
-import {Button} from 'react-bootstrap';
 const logger = new Debug(false);
+import {Alert, Button, StyleSheet, Text, View} from 'react-native';
+import {connect} from 'react-redux';
+
 
 class ShowUserInfo extends Component {
 
-    constructor(props) {
-        super(props);
-        if (!this.props.gitUser) {
-            throw new Error("No user data");
-        }
+    constructor() {
+        super();
+
         //this.shouldUpdate = true;
-        logger.log('ShowUserInfo constructor called.');
-        logger.log('ShowUserInfo props.' + JSON.stringify(this.props.gitUser, null, 4));
+        //logger.log('ShowUserInfo constructor called.');
+        //logger.log('ShowUserInfo props.' + JSON.stringify(this.props.gitUser, null, 4));
     }
-
-    getForm = (field, index) => {
-        logger.log(JSON.stringify(field));
-        return (
-            <div className="form-group" key={field.id}>
-                <label className="form-group-lg"
-                       htmlFor={field.id}>{field.label}:</label>
-                <ElfElements {...field}
-                             value={this.props.gitUser[field.id] ? this.props.gitUser[field.id] : "N/A" }
-                             onChange={this.props.onChange}
-                />
-            </div>
-        )
-    };
-
     render() {
         return (
-            <div>
-                <Button id="getUser" bsStyle="primary" onClick={this.props.onChange}>Get Git User</Button>
-                <div className="scrollbox">
-                    <form>
-                        {
-                            this.props.fields.map((field, index) => {
-                                return this.getForm(field, index)
-                            })
-                        }
-
-                    </form>
-                </div>
-            </div>
+            <View>
+                <Button title="getUser" onPress={this.props.getUser}>Get Git User</Button>
+                <View>
+                    <Text>Login Name: {this.props.login}</Text>
+                    <Text>Html Url: {this.props.html_url}</Text>
+                </View>
+            </View>
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        login: state.getUser.login,
+        html_url: state.getUser.html_url
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+        getUser: () => {
+            fetch('http://192.168.1.55:30025/user/expo-get-user')
+                .then(function(response) {
+                    return response.json();
+                }).then(function(json) {
+                const body = JSON.parse(json.body);
+                dispatch({
+                    type: 'GETEXPOUSER',
+                    getUser: body
+                });
+            }).catch(function(ex) {
+                console.log('parsing failed', ex);
+            });
+
+        }
+    };
+};
+
+ShowUserInfo = connect(mapStateToProps, mapDispatchToProps)(ShowUserInfo);
 
 export default ShowUserInfo;
 

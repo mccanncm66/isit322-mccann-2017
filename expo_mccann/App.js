@@ -4,7 +4,9 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import gistReducer from './src/assets/gist-reducer';
 import SmallNumbers from './src/components/SmallNumbers';
+import ShowUserInfo from './src/components/ShowUserInfo';
 import GetFoo from './src/components/GetFoo';
+
 
 let store = createStore(gistReducer);
 
@@ -25,6 +27,7 @@ export default class App extends React.Component {
                     />
                     <SmallNumbers/>
                     <GetFoo/>
+                    <ShowUserInfo/>
                 </View>
             </Provider>
         );
